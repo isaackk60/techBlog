@@ -31,3 +31,9 @@ img{
 }.leading-8 {
     line-height: 1.5rem;
 }
+.bg-blue-900 {
+background-color: #48BAE4;
+}
+.no-underline {
+    color:white;
+}
