@@ -9,7 +9,8 @@
     </div>
 </div>
 
-<div>
+{{-- // can try to use class="w-4/5 m-auto" ---they are same meaning --}}
+<div class="imageInReadMore">
 <div>
     <img src="{{ asset('images/' . $post->image_path) }}" alt="">
 </div>
