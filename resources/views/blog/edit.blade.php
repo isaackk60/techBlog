@@ -21,7 +21,7 @@
     </div>
 @endif
 
-<div class="w-4/5 m-auto pt-20">
+<div class="w-4/5 m-auto">
     <form 
         action="/blog/{{ $post->slug }}"
         method="POST"
@@ -33,17 +33,17 @@
             type="text"
             name="title"
             value="{{ $post->title }}"
-            class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+            class="px-2 bg-transparent block border-b-2 w-full h-20 text-5xl outline-none">
 
         <textarea 
             name="description"
             placeholder="Description..."
-            class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">{{ $post->description }}</textarea> 
+            class="p-2 leading-7 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">{{ $post->description }}</textarea> 
 
         <button    
             type="submit"
-            class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-            Submit Post
+            class="uppercase mt-12 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+            Update Post
         </button>
     </form>
 </div>
