@@ -53,3 +53,11 @@ background-color: #48BAE4;
     width:80vw;
     margin:auto;
 }
+.titleInReadMore{
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 600;
+}
+.py-15{
+    padding-bottom: 3rem;
+}
