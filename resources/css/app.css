@@ -21,9 +21,13 @@
 img{
     width:100%;
 }
-.text-5xl {
+ .text-5xl {
     font-size: 2rem;
 }
+.image-padding{
+    padding-bottom: 2rem;
+}
+/*
 .pt-8 {
     padding-top: 0.5rem;
 }
@@ -31,7 +35,7 @@ img{
     font-size: 1rem;
 }.leading-8 {
     line-height: 1.5rem;
-}
+} */
 .bg-blue-900 {
 background-color: #48BAE4;
 }

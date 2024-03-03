@@ -29,7 +29,7 @@
 
 @foreach ($posts as $post)
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
-        <div>
+        <div class="image-padding">
             <img src="{{ asset('images/' . $post->image_path) }}" alt="">
         </div>
         <div>
@@ -55,7 +55,7 @@
                 $shortDescription = $post->description;
             }
             
-            echo "<p class='text-xl text-gray-700 pt-8 pb-10 leading-8 font-light'>$shortDescription</p>";
+            echo "<p class='text-base text-gray-700 pt-2 pb-10 leading-6 font-light'>$shortDescription</p>";
             ?>
             
 
