@@ -97,4 +97,19 @@
             <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" alt="">
         </div>
     </div>
+    @foreach ($posts as $post)
+<div>
+    <a href="/blog/{{ $post->slug }}" class="eachNewsLink">
+    <div class="eachNewsImage">
+        <img src="{{ asset('images/' . $post->image_path) }}" alt="">
+    </div>
+    <h2 class="text-gray-700 font-bold text-5xl pb-4">
+        {{ $post->title }}
+    </h2>
+    </a>
+</div>
+
+
+
+    @endforeach
 @endsection
