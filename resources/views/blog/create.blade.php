@@ -40,14 +40,16 @@
             class="p-2 leading-7 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
 
         <div class="bg-grey-lighter pt-15">
-            <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
-                <span class="mt-2 text-base leading-normal">
+            <label id="fileUploadContainer" class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
+                <span id="fileUploadText" class="text-base leading-normal">
                     Select a file
                 </span>
                 <input 
                     type="file"
                     name="image"
-                    class="hidden">
+                    class="hidden"
+                    id="fileInput"
+                    onchange="fileUploaded()">
             </label>
         </div>
 
@@ -58,5 +60,23 @@
         </button>
     </form>
 </div>
+
+<script>
+    function fileUploaded() {
+        let fileInputContainer = document.getElementById('fileUploadContainer');
+        let fileInput = document.getElementById('fileInput');
+        let fileUploadText=document.getElementById('fileUploadText')
+    
+        if (fileInput.files.length > 0) {
+            fileInputContainer.classList.remove('bg-grey-lighter');
+            fileInputContainer.classList.add('bg-blue-500');
+            fileUploadText.style.color="white"
+        } else {
+            fileInputContainer.classList.add('bg-grey-lighter');
+            fileInputContainer.classList.remove('bg-blue-500');
+            fileUploadText.style.color="black"
+        }
+    }
+    </script>
 
 @endsection
