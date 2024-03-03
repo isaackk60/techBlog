@@ -61,3 +61,13 @@ background-color: #48BAE4;
 .py-15{
     padding-bottom: 3rem;
 }
+.topicInMain{
+    font-size:2.5rem;
+    font-weight: 500;
+    line-height: 3.25rem;
+}
+.topicContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

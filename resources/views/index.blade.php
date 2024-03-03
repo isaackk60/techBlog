@@ -7,9 +7,7 @@
                 <h1 class="sm:text-white text-5xl uppercase font-bold text-shadow-md pb-14">
                     Do you want to become a developer?
                 </h1>
-                <a 
-                    href="/blog"
-                    class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase">
+                <a href="/blog" class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase">
                     Read More
                 </a>
             </div>
@@ -25,25 +23,24 @@
             <h2 class="text-3xl font-extrabold text-gray-600">
                 Struggling to be a better web developer?
             </h2>
-            
+
             <p class="py-8 text-gray-500 text-s">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus.
             </p>
 
             <p class="font-extrabold text-gray-600 text-s pb-9">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente magnam vero nostrum! Perferendis eos molestias porro vero. Vel alias.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente magnam vero nostrum! Perferendis eos
+                molestias porro vero. Vel alias.
             </p>
 
-            <a 
-                href="/blog"
-                class="uppercase bg-blue-500 text-gray-100 text-s font-extrabold py-3 px-8 rounded-3xl">
+            <a href="/blog" class="uppercase bg-blue-500 text-gray-100 text-s font-extrabold py-3 px-8 rounded-3xl">
                 Find Out More
             </a>
         </div>
     </div>
 
     <div class="text-center p-15 bg-black text-white">
-        <h2 class="text-2xl pb-5 text-l"> 
+        <h2 class="text-2xl pb-5 text-l">
             I'm an expert in...
         </h2>
 
@@ -71,7 +68,8 @@
         </h2>
 
         <p class="m-auto w-4/5 text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque exercitationem saepe enim veritatis, eos temporibus quaerat facere consectetur qui.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque exercitationem saepe enim veritatis, eos
+            temporibus quaerat facere consectetur qui.
         </p>
     </div>
 
@@ -83,11 +81,12 @@
                 </span>
 
                 <h3 class="text-xl font-bold py-10">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas necessitatibus dolorum error culpa laboriosam. Enim voluptas earum repudiandae consequuntur ad? Expedita labore aspernatur facilis quasi ex? Nemo hic placeat et?
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas necessitatibus dolorum error culpa
+                    laboriosam. Enim voluptas earum repudiandae consequuntur ad? Expedita labore aspernatur facilis quasi
+                    ex? Nemo hic placeat et?
                 </h3>
 
-                <a 
-                    href=""
+                <a href=""
                     class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
                     Find Out More
                 </a>
@@ -97,19 +96,20 @@
             <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" alt="">
         </div>
     </div>
-    @foreach ($posts as $post)
-<div>
-    <a href="/blog/{{ $post->slug }}" class="eachNewsLink">
-    <div class="eachNewsImage">
-        <img src="{{ asset('images/' . $post->image_path) }}" alt="">
-    </div>
-    <h2 class="text-gray-700 font-bold text-5xl pb-4">
-        {{ $post->title }}
-    </h2>
-    </a>
-</div>
 
-
-
-    @endforeach
+    @for ($i = 0; $i < min(3, count($posts)); $i++)
+        @php
+            $post = $posts[$i];
+        @endphp
+        <a href="/blog/{{ $post->slug }}" class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto mt-5 border-b border-gray-200">
+            <div class="image-padding">
+                <img src="{{ asset('images/' . $post->image_path) }}" alt="">
+            </div>
+            <div class="topicContainer">
+                <h2 class="topicInMain">
+                    {{ $post->title }}
+                </h2>
+            </div>
+        </a>
+    @endfor
 @endsection
