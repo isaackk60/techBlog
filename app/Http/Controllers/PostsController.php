@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PostsController extends Controller
 {
- 
+
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
@@ -58,7 +58,7 @@ class PostsController extends Controller
             'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
             'image_path' => $newImageName,
             'user_id' => auth()->user()->id
-            
+
             //,'like'=>0
         ]);
 
@@ -117,14 +117,24 @@ class PostsController extends Controller
     }
 
     public function updateLike(Request $request, $slug)
-{
-    Post::where('slug', $slug)
-        ->update([
-            'like' => $request->input('like')
-        ]);
-    
-    return back()->with('message', 'Post like has been updated!');
-}
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        if ($post) {
+            $originalUpdatedAt = $post->updated_at;
+
+            $post->like = $request->input('like');
+            $post->save();
+
+            // Restore the original updated_at timestamp
+            $post->forceFill(['updated_at' => $originalUpdatedAt])->save();
+
+            return back()->with('message', 'Post like has been updated!');
+        } else {
+            return back()->with('error', 'Post not found!');
+        }
+    }
+
 
 
     /**
