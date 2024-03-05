@@ -24,8 +24,10 @@
         {{ $post->description }}
     </p>
 </div>
+@if (isset(Auth::user()->id))
 <form 
-        action="/blog/{{ $post->slug }}"
+action="{{ route('posts.updateLike', $post->slug) }}"
+
         method="POST"
         enctype="multipart/form-data">
         @csrf
@@ -43,5 +45,6 @@
             Update Post
         </button>
     </form>
+    @endif
 
 @endsection 

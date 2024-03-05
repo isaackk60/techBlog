@@ -116,6 +116,17 @@ class PostsController extends Controller
             ->with('message', 'Your post has been updated!');
     }
 
+    public function updateLike(Request $request, $slug)
+{
+    Post::where('slug', $slug)
+        ->update([
+            'like' => $request->input('like')
+        ]);
+    
+    return back()->with('message', 'Post like has been updated!');
+}
+
+
     /**
      * Remove the specified resource from storage.
      *
