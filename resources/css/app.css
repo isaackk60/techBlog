@@ -71,3 +71,6 @@ background-color: #48BAE4;
     flex-direction: column;
     justify-content: center;
 }
+.bg-gray-50:hover{
+    background-color:#3fff3f;
+}
