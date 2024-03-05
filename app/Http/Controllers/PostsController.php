@@ -58,6 +58,8 @@ class PostsController extends Controller
             'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
             'image_path' => $newImageName,
             'user_id' => auth()->user()->id
+            
+            //,'like'=>0
         ]);
 
         return redirect('/blog')
@@ -107,7 +109,7 @@ class PostsController extends Controller
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
                 'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
-                'user_id' => auth()->user()->id
+                'user_id' => auth()->user()->id,
             ]);
 
         return redirect('/blog')

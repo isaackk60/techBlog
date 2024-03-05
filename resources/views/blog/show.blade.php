@@ -24,5 +24,24 @@
         {{ $post->description }}
     </p>
 </div>
+<form 
+        action="/blog/{{ $post->slug }}"
+        method="POST"
+        enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+
+        <input 
+            type="text"
+            name="like"
+            value="{{ $post->like }}"
+            class="px-2 bg-transparent block border-b-2 w-full h-20 text-5xl outline-none">
+
+        <button    
+            type="submit"
+            class="uppercase mt-12 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+            Update Post
+        </button>
+    </form>
 
 @endsection 
