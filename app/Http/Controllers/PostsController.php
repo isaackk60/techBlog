@@ -116,14 +116,32 @@ class PostsController extends Controller
             ->with('message', 'Your post has been updated!');
     }
 
-    public function updateLike(Request $request, $slug)
+    public function updateLike($slug)
     {
         $post = Post::where('slug', $slug)->first();
 
         if ($post) {
             $originalUpdatedAt = $post->updated_at;
 
-            $post->like = $request->input('like');
+            $post->like += 1;
+            $post->save();
+
+            // Restore the original updated_at timestamp
+            $post->forceFill(['updated_at' => $originalUpdatedAt])->save();
+
+            return back()->with('message', 'Post like has been updated!');
+        } else {
+            return back()->with('error', 'Post not found!');
+        }
+    }
+    public function updateDisLike($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        if ($post) {
+            $originalUpdatedAt = $post->updated_at;
+
+            $post->like -= 1;
             $post->save();
 
             // Restore the original updated_at timestamp

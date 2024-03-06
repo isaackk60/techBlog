@@ -6,6 +6,8 @@
         <h1 class="titleInReadMore">
             {{ $post->title }}
         </h1>
+        <div class="loveOnSlugs"> ♥ {{ $post->like }}</div>
+        </div>
     </div>
 </div>
 
@@ -25,7 +27,7 @@
     </p>
 </div>
 @if (isset(Auth::user()->id))
-<form 
+{{-- <form 
 action="{{ route('posts.updateLike', $post->slug) }}"
 
         method="POST"
@@ -44,7 +46,29 @@ action="{{ route('posts.updateLike', $post->slug) }}"
             class="uppercase mt-12 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
             Update Post
         </button>
-    </form>
+    </form> --}}
+    <div>{{$post->like}}</div>
+    <form 
+    action="{{ route('posts.updateLike', $post->slug) }}"
+    method="POST"
+    enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
+    <button type="submit" class="uppercase mt-12 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+        Like
+    </button>
+</form>
+
+<form 
+action="{{ route('posts.dislike', $post->slug) }}"
+method="POST"
+enctype="multipart/form-data">
+@csrf
+@method('PUT')
+<button type="submit" class="uppercase mt-12 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+    Dislike
+</button>
+</form>
     @endif
 
 @endsection 
