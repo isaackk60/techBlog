@@ -74,3 +74,12 @@ background-color: #0d2d5e;
 .bg-gray-50:hover{
     background-color:#3fff3f;
 }
+.loveOnSlugs{
+    font-size: 20px;
+}
+@media (max-width: 640px) {
+    .sm\:flex {
+        display: flex;
+        margin-top:0.75rem;
+    }
+}

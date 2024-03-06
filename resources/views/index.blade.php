@@ -41,20 +41,20 @@
 
     <div class="text-center p-15 bg-black text-white">
         <h2 class="text-2xl pb-5 text-l">
-            I'm an expert in...
+            Stay Updated with the Latest in Technology
         </h2>
 
-        <span class="font-extrabold block text-4xl py-1">
-            Ux Design
+        <span class="font-extrabold block text-3xl py-1">
+            Latest Gadgets Buzz
         </span>
-        <span class="font-extrabold block text-4xl py-1">
-            Project Management
+        <span class="font-extrabold block text-3xl py-1">
+            Trendy Tech Trends
         </span>
-        <span class="font-extrabold block text-4xl py-1">
-            Digital Strategy
+        <span class="font-extrabold block text-3xl py-1">
+            Expert Insights
         </span>
-        <span class="font-extrabold block text-4xl py-1">
-            Backend Development
+        <span class="font-extrabold block text-3xl py-1">
+            Software Updates Alert
         </span>
     </div>
 
