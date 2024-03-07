@@ -40,3 +40,5 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->nam
 Route::put('/blog/{slug}/like', [\App\Http\Controllers\PostsController::class, 'updateLike'])->name('posts.updateLike');
 
 Route::put('/blog/{slug}/dislike', [\App\Http\Controllers\PostsController::class, 'updateDisLike'])->name('posts.dislike');
+
+Route::get('/about', [PagesController::class, 'about'])->name('about');
