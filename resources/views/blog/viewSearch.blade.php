@@ -26,18 +26,14 @@
         </a>
     </div>
 @endif --}}
-
 <div class="w-4/5 mx-auto pt-15">
-    <form action="{{ route('blog.index') }}" method="GET">
-        <label>Sort by</label>
-        <select name="sort" onchange="this.form.submit()" class="selectSort">
-            <option value="like" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'like') echo 'selected'; ?>>Like</option>
-            <option value="updated_at" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'updated_at') echo 'selected'; ?>>Latest</option>
-        </select>
+    <form action="{{ route('blog.search') }}" method="GET" class="mb-6">
+        <input type="text" name="query" placeholder="Search" class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
+        <button type="submit" class="ml-2 px-4 py-2.5 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"><i class="fas fa-search"></i></button>
     </form>
 </div>
-
 @foreach ($posts as $post)
+@if ($post)
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
         <div class="image-padding">
             <img src="{{ asset('images/' . $post->image_path) }}" alt="">
@@ -99,7 +95,9 @@
                 </span>
             @endif
         </div>
-    </div>    
+    </div> 
+    @endif   
 @endforeach
+
 
 @endsection
