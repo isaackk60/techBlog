@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
+    {{-- <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
         <div>
             <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" width="700" alt="">
         </div>
@@ -37,23 +37,34 @@
                 Find Out More
             </a>
         </div>
-    </div>
+    </div> --}}
+
+    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-t border-gray-200">
+        <div class="image-padding">
+  <img src="https://media.licdn.com/dms/image/D5612AQE1U31GRHLAJw/article-cover_image-shrink_720_1280/0/1704266273331?e=2147483647&v=beta&t=aqDRVpuv66riLVH3V7sAjwQPjR_CBLGhWJVqW7RzuLs" alt="">
+</div>      
+<div class="flex flex-col justify-center">
+    <h2 class="text-3xl font-semibold mb-4">Stay Updated</h2>
+  <p class="text-lg font-medium text-gray-700 leading-relaxed mb-6">At TechNewsWorld, we understand the importance of staying informed in today's fast-paced digital age. That's why we strive to bring you timely and accurate information about the ever-evolving world of technology. From groundbreaking innovations to industry trends and analysis, we've got you covered.</p>
+</div>
+
+</div>
 
     <div class="text-center p-15 bg-black text-white">
         <h2 class="text-2xl pb-5 text-l">
             Stay Updated with the Latest in Technology
         </h2>
 
-        <span class="font-extrabold block text-3xl py-1">
+        <span class="font-bold block text-3xl py-2">
             Latest Gadgets Buzz
         </span>
-        <span class="font-extrabold block text-3xl py-1">
+        <span class="font-bold block text-3xl py-2">
             Trendy Tech Trends
         </span>
-        <span class="font-extrabold block text-3xl py-1">
+        <span class="font-bold block text-3xl py-2">
             Expert Insights
         </span>
-        <span class="font-extrabold block text-3xl py-1">
+        <span class="font-bold block text-3xl py-1">
             Software Updates Alert
         </span>
     </div>
