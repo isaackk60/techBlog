@@ -3,8 +3,8 @@
 @section('content')
 <div class="w-4/5 m-auto text-center">
     <div class="py-15 border-b border-gray-200">
-        <h1 class="text-6xl">
-            Blog Posts
+        <h1 class="text-6xl uppercase text-blue-800 font-semibold">
+            tech news
         </h1>
     </div>
 </div>
@@ -30,7 +30,7 @@
 <div class="w-4/5 mx-auto pt-15">
     <form action="{{ route('blog.index') }}" method="GET">
         <label>Sort by</label>
-        <select name="sort" onchange="this.form.submit()" class="bg-gray-100 uppercase text-black-100 text-xs font-extrabold py-3 px-4 border-2 border-gray-950 ml-2">
+        <select name="sort" onchange="this.form.submit()" class="selectSort">
             <option value="like" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'like') echo 'selected'; ?>>Like</option>
             <option value="updated_at" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'updated_at') echo 'selected'; ?>>Latest</option>
         </select>

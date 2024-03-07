@@ -17,7 +17,14 @@ use App\Http\Controllers\PostsController;
 
 Route::get('/', [PagesController::class, 'index']);
 
+// Route::resource('/blog', PostsController::class);
+// Route::get('/blog', [\App\Http\Controllers\PostsController::class, 'index'])->name('blog');
+
+// Define a resource route for PostsController
 Route::resource('/blog', PostsController::class);
+
+// Define a named route for blog index
+Route::get('/blog', [\App\Http\Controllers\PostsController::class, 'index'])->name('blog.index');
 
 Auth::routes();
 

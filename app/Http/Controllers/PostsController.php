@@ -38,7 +38,7 @@ class PostsController extends Controller
         }
     } 
     // else {//default
-    //     $query->orderBy('updated_at', 'DESC');
+    //     $query->orderBy('like', 'DESC');
     // }
 
     return view('blog.index')->with('posts', $query->get());

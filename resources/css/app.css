@@ -72,18 +72,25 @@ background-color: #0d2d5e;
     justify-content: center;
 }
 .bg-gray-50:hover{
-    background-color:#3fff3f;
+    background-color:#4681f4;
+    color:white;
 }
 .loveOnSlugs{
     font-size: 20px;
 }
-option{
-    text-align: center;
+
+.selectSort {
+    background-color: #f7fafc;
+    text-transform: uppercase;
+    color: #1a202c;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-width: 2px;
+    border-color: #475569;
+    margin-left: 0.5rem;
 }
-option:hover{
-    background-color:#0d2d5e;
-    color:white;
-}
+
 @media (max-width: 640px) {
     .sm\:flex {
         display: flex;
