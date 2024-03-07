@@ -26,6 +26,11 @@ Route::resource('/blog', PostsController::class);
 // Define a named route for blog index
 Route::get('/blog', [\App\Http\Controllers\PostsController::class, 'index'])->name('blog.index');
 
+Route::resource('/search', PostsController::class);
+
+// Define a named route for blog index
+Route::get('/search', [\App\Http\Controllers\PostsController::class, 'viewSearch'])->name('blog.viewSearch');
+
 Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
