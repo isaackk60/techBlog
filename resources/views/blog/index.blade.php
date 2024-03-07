@@ -60,7 +60,7 @@
             if ($wordCount > 40) {
                 $words = explode(" ", $post->description);
                 $shortDescription = implode(" ", array_slice($words, 0, 40));
-                $shortDescription .= "...";
+                $shortDescription .= " ...";
             } else {
                 $shortDescription = $post->description;
             }

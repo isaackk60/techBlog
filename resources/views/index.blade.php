@@ -58,29 +58,28 @@
         </span>
     </div>
 
-    <div class="text-center py-15">
+    <div class="text-center pt-13">
         <span class="uppercase text-s text-gray-400">
-            Blog
+            Latest Tech News
         </span>
 
         <h2 class="text-4xl font-bold py-10">
-            Recent Posts
+            Exciting Tech News Updated!
         </h2>
 
-        <p class="m-auto w-4/5 text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque exercitationem saepe enim veritatis, eos
-            temporibus quaerat facere consectetur qui.
+        <p class="m-auto w-4/5 text-gray-700 leading-relaxed font-medium">
+            Stay ahead with our latest articles covering cutting-edge technology, insightful analyses, and exciting innovations from the world of tech. Whether you're a tech enthusiast or a professional, our blog delivers curated content to keep you informed and inspired.
         </p>
     </div>
 
-    <div class="sm:grid grid-cols-2 w-4/5 m-auto">
+    {{-- <div class="sm:grid grid-cols-2 w-4/5 m-auto">
         <div class="flex bg-yellow-700 text-gray-100 pt-10">
             <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block">
                 <span class="uppercase text-xs">
                     PHP
-                </span>
+                </span> --}}
 
-                <h3 class="text-xl font-bold py-10">
+                {{-- <h3 class="text-xl font-bold py-10">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas necessitatibus dolorum error culpa
                     laboriosam. Enim voluptas earum repudiandae consequuntur ad? Expedita labore aspernatur facilis quasi
                     ex? Nemo hic placeat et?
@@ -95,21 +94,50 @@
         <div>
             <img src="https://cdn.pixabay.com/photo/2014/05/03/01/03/laptop-336704_960_720.jpg" alt="">
         </div>
-    </div>
+    </div> --}}
+    <div>
+        <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
+            @for ($i = 0; $i < min(4, count($posts)); $i++)
+                @php
+                    $post = $posts[$i];
+                @endphp
 
-    @for ($i = 0; $i < min(3, count($posts)); $i++)
-        @php
-            $post = $posts[$i];
-        @endphp
-        <a href="/blog/{{ $post->slug }}" class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto mt-5 border-b border-gray-200">
-            <div class="image-padding">
+                <div class="flex flex-col justify-center">
+                    <a href="/blog/{{ $post->slug }}">
+                        {{-- <div class="image-padding">
                 <img src="{{ asset('images/' . $post->image_path) }}" alt="">
             </div>
             <div class="topicContainer">
                 <h2 class="topicInMain">
                     {{ $post->title }}
                 </h2>
-            </div>
-        </a>
-    @endfor
+            </div> --}}
+                        {{-- <div class="sm:flex sm:flex-col w-4/5 mx-auto py-15"> --}}
+
+                        <div class="image-padding">
+                            <img src="{{ asset('images/' . $post->image_path) }}" alt="">
+                        </div>
+                        <div>
+                            <h2 class="text-gray-700 font-bold text-2xl pb-4">
+                                {{ $post->title }}
+                            </h2>
+                            <?php
+                            $wordCount = str_word_count($post->description);
+                            
+                            if ($wordCount > 30) {
+                                $words = explode(' ', $post->description);
+                                $shortDescription = implode(' ', array_slice($words, 0, 40));
+                                $shortDescription .= ' ...';
+                            } else {
+                                $shortDescription = $post->description;
+                            }
+                            
+                            echo "<p class='text-base text-gray-700 pt-2 pb-10 leading-6'>$shortDescription</p>";
+                            ?>
+                    </a>
+                </div>
+        </div>
+        @endfor
+    </div>
+    </div>
 @endsection
