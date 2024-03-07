@@ -18,11 +18,32 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('blog.index')
-            ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
-    }
+    // public function index()
+    // {
+    //     return view('blog.index')
+    //         ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+    // }
+
+    public function index(Request $request)
+{
+    $query = Post::query();
+
+
+    if ($request->has('sort')) {
+        $sortField = $request->sort;
+        if ($sortField == 'like') {
+            $query->orderBy('like', 'DESC');
+        } elseif ($sortField == 'updated_at') {
+            $query->orderBy('updated_at', 'DESC');
+        }
+    } 
+    // else {//default
+    //     $query->orderBy('updated_at', 'DESC');
+    // }
+
+    return view('blog.index')->with('posts', $query->get());
+}
+
 
     /**
      * Show the form for creating a new resource.

@@ -27,6 +27,15 @@
     </div>
 @endif
 
+<div class="pt-5">
+    <form action="{{ route('blog.index') }}" method="GET">
+        <select name="sort" onchange="this.form.submit()" class="bg-blue-500 uppercase bg-transparent text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
+            <option value="like" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'like') echo 'selected'; ?>>Sort by Like</option>
+            <option value="updated_at" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'updated_at') echo 'selected'; ?>>Sort by Updated At</option>
+        </select>
+    </form>
+</div>
+
 @foreach ($posts as $post)
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
         <div class="image-padding">
