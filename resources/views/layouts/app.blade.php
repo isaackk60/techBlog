@@ -29,6 +29,10 @@
                 <div>
                     <a class="no-underline hover:text-gray-500" href="{{ route('blog.index') }}">{{ __('News') }}</a>
                 </div>
+
+                <div>
+                    <a class="no-underline hover:text-gray-500" href="{{ route('contact') }}">{{ __('Contact') }}</a>
+                </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     @guest
                         <a class="no-underline hover:text-gray-500" href="{{ route('login') }}">{{ __('Login') }}</a>
