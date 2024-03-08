@@ -77,3 +77,5 @@ Route::put('/blog/{slug}/like', [\App\Http\Controllers\PostsController::class, '
 Route::put('/blog/{slug}/dislike', [\App\Http\Controllers\PostsController::class, 'updateDisLike'])->name('posts.dislike');
 
 Route::get('/about', [PagesController::class, 'about'])->name('about');
+
+Route::get('/contact', [\App\Http\Controllers\PagesController::class, 'contact'])->name('contact');

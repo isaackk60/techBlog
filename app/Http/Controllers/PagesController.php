@@ -10,7 +10,7 @@ class PagesController extends Controller
     public function index()
     {
         return view('index')
-        ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+            ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
     }
 
     public function show($slug)
@@ -19,7 +19,13 @@ class PagesController extends Controller
             ->with('post', Post::where('slug', $slug)->first());
     }
 
-    public function about(){
+    public function about()
+    {
         return view('about');
+    }
+
+    public function contact()
+    {
+        return view('contact');
     }
 }
