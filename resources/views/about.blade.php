@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="mx-auto py-12 px-4">
+<div class="mx-auto py-12 px-4 about-background-color">
     <div class="max-w-2xl mx-auto">
         <h2 class="text-3xl pb-3 font-semibold mb-4">Our Mission</h2>
         <p class="text-lg text-gray-700 leading-relaxed mb-6">Our mission at TechNewsWorld is to keep you informed about the latest developments in technology, including:</p>
