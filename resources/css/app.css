@@ -5,28 +5,32 @@
 @import "tailwindcss/utilities";
 
 
-.background-image 
-{
+.background-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1497493292307-31c376b6e479?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlY2glMjBibG9nfGVufDB8fDB8fHww');    
+            rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1497493292307-31c376b6e479?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlY2glMjBibG9nfGVufDB8fDB8fHww');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     height: 600px;
 }
+
 .w-2\/6 {
-    padding-left:20px;
+    padding-left: 20px;
 }
-img{
-    width:100%;
+
+img {
+    width: 100%;
 }
- .text-5xl {
+
+.text-5xl {
     font-size: 2rem;
 }
-.image-padding{
+
+.image-padding {
     padding-bottom: 2rem;
 }
+
 /*
 .pt-8 {
     padding-top: 0.5rem;
@@ -37,45 +41,54 @@ img{
     line-height: 1.5rem;
 } */
 .bg-blue-900 {
-background-color: #0d2d5e;
-}
-.no-underline {
-    color:white;
-}
-.text-gray-300{
-    color:white;
-}
-.bg-gray-800{
-    background-color:black;
+    background-color: #0d2d5e;
 }
 
-.imageInReadMore{
-    width:80vw;
-    margin:auto;
+.no-underline {
+    color: white;
 }
-.titleInReadMore{
+
+.text-gray-300 {
+    color: white;
+}
+
+.bg-gray-800 {
+    background-color: #2a2b2a;
+}
+
+.imageInReadMore {
+    width: 80vw;
+    margin: auto;
+}
+
+.titleInReadMore {
     font-size: 2rem;
     line-height: 3rem;
     font-weight: 600;
 }
-.py-15{
+
+.py-15 {
     padding-bottom: 3rem;
 }
-.topicInMain{
-    font-size:2.5rem;
+
+.topicInMain {
+    font-size: 2.5rem;
     font-weight: 500;
     line-height: 3.25rem;
 }
-.topicContainer{
+
+.topicContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.bg-gray-50:hover{
-    background-color:#4681f4;
-    color:white;
+
+.bg-gray-50:hover {
+    background-color: #4681f4;
+    color: white;
 }
-.loveOnSlugs{
+
+.loveOnSlugs {
     font-size: 20px;
 }
 
@@ -94,6 +107,13 @@ background-color: #0d2d5e;
 @media (max-width: 640px) {
     .sm\:flex {
         display: flex;
-        margin-top:0.75rem;
+        margin-top: 0.75rem;
     }
+}
+
+.button-color {
+    background-color: #0076BA;
+}
+.button-color:hover{
+    background-color:#4681f4;
 }

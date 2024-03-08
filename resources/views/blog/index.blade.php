@@ -21,7 +21,7 @@
     <div class="pt-15 w-4/5 m-auto">
         <a 
             href="/blog/create"
-            class="bg-blue-500 uppercase bg-transparent text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
+            class="button-color uppercase bg-transparent text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
             Create post
         </a>
     </div>
@@ -30,7 +30,7 @@
 <div class="w-4/5 mx-auto pt-15">
     <form action="{{ route('blog.index') }}" method="GET">
         <label>Sort by</label>
-        <select name="sort" onchange="this.form.submit()" class="selectSort">
+        <select name="sort" onchange="this.form.submit()" class="selectSort cursor-pointer">
             <option value="like" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'like') echo 'selected'; ?>>Like</option>
             <option value="updated_at" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'updated_at') echo 'selected'; ?>>Latest</option>
         </select>
@@ -69,8 +69,8 @@
             ?>
             
 
-            <a href="/blog/{{ $post->slug }}" class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-                Keep Reading
+            <a href="/blog/{{ $post->slug }}" class="uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+                Read More
             </a>
 
             @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
