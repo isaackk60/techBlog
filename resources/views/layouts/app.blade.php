@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,60 +12,56 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
+
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
-        <header class="bg-blue-900 py-6">
-            <div class="container mx-auto flex justify-between items-center px-6">
-                <div>
+        <header class="nav-footer-background-color py-6">
+            <div class="sm:grid grid-cols-3 m-auto">
+                <div class="text-center">
                     <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
-                <div>
-                    <a class="no-underline hover:text-gray-500" href="{{ route('blog.index') }}">{{ __('News') }}</a>
+                <div class="sm:grid grid-cols-4 gap-2 m-auto text-center">
+                    <a class="nav-footer-color" href="{{ route('blog.index') }}">{{ __('News') }}</a>
+                    <a class="nav-footer-color" href="{{ route('blog.viewSearch') }}">{{ __('Search') }}</a>
+                    <a class="nav-footer-color" href="{{ route('about') }}">{{ __('About') }}</a>
+                    <a class="nav-footer-color" href="{{ route('contact') }}">{{ __('Contact') }}</a>
                 </div>
-                <div>
-                    <a class="no-underline hover:text-gray-500" href="{{ route('blog.viewSearch') }}">{{ __('Search') }}</a>
-                </div>
-
-
-                <div>
-                    <a class="no-underline hover:text-gray-500" href="{{ route('about') }}">{{ __('About') }}</a>
-                </div>
-                <div>
-                    <a class="no-underline hover:text-gray-500" href="{{ route('contact') }}">{{ __('Contact') }}</a>
-                </div>
-                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+                <div class="sm:grid grid-cols-2 gap-2 m-auto text-center">
                     @guest
-                        <a class="no-underline hover:text-gray-500" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-footer-color" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
-                            <a class="no-underline hover:text-gray-500" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-footer-color" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     @else
-                        <span>{{ Auth::user()->name }}</span>
+                        <div class="username">{{ Auth::user()->name }}</div>
 
-                        <a href="{{ route('logout') }}"
-                           class="no-underline hover:text-gray-500"
-                           onclick="event.preventDefault();
+                        <a href="{{ route('logout') }}" class="nav-footer-color"
+                            onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                             {{ csrf_field() }}
                         </form>
                     @endguest
-                </nav>
+                </div>
             </div>
-        </header>
 
-        @yield('content')
+
+    </div>
+    </header>
+
+    @yield('content')
     </div>
     <div>
-        @include("layouts.footer")
+        @include('layouts.footer')
     </div>
 </body>
+
 </html>
