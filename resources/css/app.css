@@ -115,10 +115,15 @@ img {
     background-color: #3E92CC;
     /* color:black; */
 }
-.button-color:hover{
-    background-color:#054A91;
+
+.button-color:hover {
+    background-color: #054A91;
     /* color:white; */
 }
-h2{
+
+h2 {
     line-height: 2rem;
+}
+.about-background-color{
+    background-color: #C6DDF0;
 }

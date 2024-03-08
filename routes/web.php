@@ -72,5 +72,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::put('/blog/{slug}/like', [PostsController::class, 'updateLike'])->name('posts.updateLike');
-Route::put('/blog/{slug}/dislike', [PostsController::class, 'updateDisLike'])->name('posts.dislike');
+Route::put('/blog/{slug}/like', [\App\Http\Controllers\PostsController::class, 'updateLike'])->name('posts.updateLike');
+
+Route::put('/blog/{slug}/dislike', [\App\Http\Controllers\PostsController::class, 'updateDisLike'])->name('posts.dislike');
+
+Route::get('/about', [PagesController::class, 'about'])->name('about');

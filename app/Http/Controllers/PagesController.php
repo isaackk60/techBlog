@@ -18,4 +18,8 @@ class PagesController extends Controller
         return view('blog.show')
             ->with('post', Post::where('slug', $slug)->first());
     }
+
+    public function about(){
+        return view('about');
+    }
 }
