@@ -11,7 +11,7 @@ class PostsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show','viewSearch']]);
     }
     /**
      * Display a listing of the resource.
@@ -43,6 +43,29 @@ class PostsController extends Controller
 
     return view('blog.index')->with('posts', $query->get());
 }
+
+    public function viewSearch()
+    {
+        return view('blog.viewSearch')
+            ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+    
+        // Check if a search query exists
+        if ($query) {
+            // Apply search filter only when a query is provided
+            $posts = Post::where('title', 'like', "%$query%")->get();
+        } else {
+            // Fetch all posts if no query is provided
+            $posts = Post::orderBy('updated_at', 'DESC')->get();
+        }
+    
+        return view('blog.viewSearch', compact('posts'));
+    }
+    
 
 
     /**
