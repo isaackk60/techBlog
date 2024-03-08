@@ -4,7 +4,7 @@
 <div class="w-4/5 m-auto text-left">
     <div class="py-15">
         <h1 class="text-6xl">
-            Update Post
+            Update News
         </h1>
     </div>
 </div>
@@ -42,8 +42,8 @@
 
         <button    
             type="submit"
-            class="uppercase mt-12 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-            Update Post
+            class="uppercase mt-12 button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+            Update
         </button>
     </form>
 </div>

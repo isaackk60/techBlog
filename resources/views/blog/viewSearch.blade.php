@@ -21,7 +21,7 @@
     <div class="pt-15 w-4/5 m-auto">
         <a 
             href="/blog/create"
-            class="bg-blue-500 uppercase bg-transparent text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
+            class="button-color uppercase bg-transparent text-gray-100 text-xs font-extrabold py-3 px-5 rounded-3xl">
             Create post
         </a>
     </div>
@@ -29,7 +29,7 @@
 <div class="w-4/5 mx-auto pt-15">
     <form action="{{ route('blog.search') }}" method="GET" class="mb-6">
         <input type="text" name="query" placeholder="Search" class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
-        <button type="submit" class="ml-2 px-4 py-2.5 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"><i class="fas fa-search"></i></button>
+        <button type="submit" class="ml-2 px-4 py-2.5 button-color text-white rounded-md hover:bg-blue-600"><i class="fas fa-search"></i></button>
     </form>
 </div>
 @foreach ($posts as $post)
@@ -39,7 +39,7 @@
             <img src="{{ asset('images/' . $post->image_path) }}" alt="">
         </div>
         <div>
-            <h2 class="text-gray-700 font-bold text-5xl pb-4">
+            <h2 class="text-gray-700 font-bold text-2xl pb-4">
                 {{ $post->title }}
             </h2>
 
@@ -65,7 +65,7 @@
             ?>
             
 
-            <a href="/blog/{{ $post->slug }}" class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+            <a href="/blog/{{ $post->slug }}" class="uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
                 Keep Reading
             </a>
 

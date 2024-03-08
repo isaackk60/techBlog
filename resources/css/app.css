@@ -112,8 +112,13 @@ img {
 }
 
 .button-color {
-    background-color: #0076BA;
+    background-color: #3E92CC;
+    /* color:black; */
 }
 .button-color:hover{
-    background-color:#4681f4;
+    background-color:#054A91;
+    /* color:white; */
+}
+h2{
+    line-height: 2rem;
 }
