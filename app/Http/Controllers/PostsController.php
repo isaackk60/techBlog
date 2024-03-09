@@ -11,7 +11,7 @@ class PostsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show','viewSearch']]);
+        $this->middleware('auth', ['except' => ['index', 'show','viewSearch','search']]);
     }
     /**
      * Display a listing of the resource.
@@ -37,9 +37,9 @@ class PostsController extends Controller
             $query->orderBy('updated_at', 'DESC');
         }
     } 
-    // else {//default
-    //     $query->orderBy('like', 'DESC');
-    // }
+    else {//default
+        $query->orderBy('updated_at', 'DESC');
+    }
 
     return view('blog.index')->with('posts', $query->get());
 }

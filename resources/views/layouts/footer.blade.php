@@ -34,7 +34,7 @@
             </a>
         </div>
         <div class="text-l sm:font-bold text-gray-100 nav-footer-color">
-            <a href="/blog">
+            <a href="blog">
                 Blog
             </a>
         </div>

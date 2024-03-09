@@ -11,7 +11,7 @@
 
 @if (session()->has('message'))
     <div class="w-4/5 m-auto mt-10 pl-2">
-        <p class="pl-5 w-2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl py-4">
+        <p class="px-5 w-2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl py-4">
             {{ session()->get('message') }}
         </p>
     </div>
@@ -28,11 +28,11 @@
 @endif
 
 <div class="w-4/5 mx-auto pt-15">
-    <form action="{{ route('blog.index') }}" method="GET">
+    <form action="/blog" method="GET">
         <label>Sort by</label>
         <select name="sort" onchange="this.form.submit()" class="selectSort cursor-pointer">
-            <option value="like" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'like') echo 'selected'; ?>>Like</option>
             <option value="updated_at" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'updated_at') echo 'selected'; ?>>Latest</option>
+            <option value="like" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'like') echo 'selected'; ?>>Like</option>
         </select>
     </form>
 </div>

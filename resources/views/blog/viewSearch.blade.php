@@ -27,7 +27,7 @@
     </div>
 @endif --}}
 <div class="w-4/5 mx-auto pt-15">
-    <form action="{{ route('blog.search') }}" method="GET" class="mb-6">
+    <form action="/blog/search" method="GET">
         <input type="text" name="query" placeholder="Search" class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
         <button type="submit" class="ml-2 px-4 py-2.5 button-color text-white rounded-md hover:bg-blue-600"><i class="fas fa-search"></i></button>
     </form>

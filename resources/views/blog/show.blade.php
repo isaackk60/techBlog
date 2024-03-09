@@ -7,9 +7,9 @@
                 {{ $post->title }}
             </h1>
 
-
+            {{-- /blog/{{ $post->slug }}/dislike --}}
             <div class="sm:flex sm:flex-wrap items-center gap-4 mx-auto">
-                <form action="{{ route('posts.dislike', $post->slug) }}" method="POST" enctype="multipart/form-data">
+                <form action="/blog/{{ $post->slug }}/dislike" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <button type="submit"
@@ -18,7 +18,7 @@
                     </button>
                 </form>
                 <div class="loveOnSlugs"> ♥ {{ $post->like }}</div>
-                <form action="{{ route('posts.updateLike', $post->slug) }}" method="POST" enctype="multipart/form-data">
+                <form action="/blog/{{ $post->slug }}/like" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <button type="submit"
@@ -43,9 +43,13 @@
                 {{ date('jS M Y', strtotime($post->updated_at)) }}
             </span>
 
-            <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
-                {{ $post->description }}
-            </p>
+            {{-- <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light"> --}}
+                {{-- {{ $post->description }} --}}
+                {{-- {!! nl2br(e($post->description)) !!} --}}
+                @foreach (explode("\n", $post->description) as $paragraph)
+                    <p class="text-xl text-gray-700 pt-8 leading-8 font-light">{{ $paragraph }}</p>
+                @endforeach
+            {{-- </p> --}}
         </div>
         @if (isset(Auth::user()->id))
             {{-- <form 
