@@ -107,3 +107,9 @@ h2 {
 .about-background-color{
     background-color: #C6DDF0;
 }
+.cancel-button-color{
+    background-color:rgb(188, 188, 188);
+}
+.cancel-button-color:hover{
+    background-color: grey;
+}

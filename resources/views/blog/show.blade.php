@@ -57,40 +57,58 @@
             @endforeach
             {{-- </p> --}}
         </div>
+        <div class="w-4/5 m-auto text-left pt-15">
+            <h2 class="text-3xl font-semibold">Comments</h2>
+          
+            @foreach ($post->comments as $comment)  {{-- ->take(3) if need--}}
+                <div>
+                    <p class="editCommentContent text-xl text-gray-700 pt-8 leading-8 font-normal">
+                        {{ $comment->content }}</p>
 
-        <h2>Comments</h2>
-        @foreach ($post->comments as $comment)
-            <div class="comment">
-                <p>{{ $comment->content }}</p>
-                
-                <!-- Check if the authenticated user is the owner of the comment -->
-                @if (Auth::check() && $comment->user_id === Auth::id())
-                    <div class="actions">
-                        <!-- Edit link -->
-                        <a href="{{ route('comments.edit', $comment) }}" class="btn btn-primary">Edit</a>
-                        
-                        <!-- Delete form -->
-                        <form action="{{ route('comments.destroy', $comment) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
-                @endif
-            </div>
-        @endforeach
-        
-        @if (Auth::check())
-            <h2>Add a Comment</h2>
-            <form action="{{ route('comments.store') }}" method="POST">
-                @csrf
-                <input type="hidden" name="post_id" value="{{ $post->id }}">
-                <textarea name="content" rows="3"></textarea>
-                <button type="submit">Add Comment</button>
-            </form>
-        @endif
+                    <form action="{{ route('comments.update', $comment->id) }}" method="POST"
+                        class="hidden inputEditCommentForm ">
+                        @csrf
+                        @method('PUT')
+                        <textarea name="content" placeholder="Add a Comment..." class="inputEditComment p-2 leading-7 bg-transparent block border-2 w-full h-20 text-xl outline-none my-9">{{ $comment->content }}</textarea>
+                        <button type="submit"
+                            class="editCommentButton uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">Save</button>
+                        <button id="cancelButton"
+                            class="uppercase cancel-button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">Cancel</button>
+                    </form>
 
 
+                    <span class="commentTime text-gray-500">
+                        By <span class="font-bold italic text-gray-800">{{ $comment->user->name }}</span>, Commented on
+                        {{ date('jS M Y', strtotime($comment->updated_at)) }}
+                    </span>
+
+                    @if (Auth::check() && $comment->user_id === Auth::id())
+                        <div class="sm:flex gap-5 float-right">
+                            <button
+                                class="editButton text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">Edit</button>
+
+                            <form action="{{ route('comments.destroy', $comment) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-500 pr-3">Delete</button>
+                            </form>
+                        </div>
+                    @endif
+                </div>
+            @endforeach
+
+            @if (Auth::check())
+                <form action="{{ route('comments.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    <textarea id="commentContent" name="content" placeholder="Add a Comment..."
+                        class="p-2 leading-7 bg-transparent block border-2 w-full h-20 text-xl outline-none my-9"></textarea>
+                    <button id="commentButton" type="submit"
+                        class="uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl hidden">Comment</button>
+                </form>
+            @endif
+
+        </div>
 
 
 
@@ -122,6 +140,46 @@ action="{{ route('posts.updateLike', $post->slug) }}"
             const likeForm = document.getElementById('likeForm');
             const likeButton = document.getElementById('likeButton');
             const likeIcon = document.getElementById('likeIcon');
+            const commentContent = document.getElementById('commentContent');
+            const commentButton = document.getElementById('commentButton');
+
+
+            const editButtons = document.querySelectorAll('.editButton');
+            const editCommentContents = document.querySelectorAll('.editCommentContent');
+            const inputEditCommentForms = document.querySelectorAll('.inputEditCommentForm');
+            const commentTimes = document.querySelectorAll('.commentTime');
+            const cancelButtons = document.querySelectorAll('.cancelButton');
+            const inputEditComments = document.querySelectorAll('.inputEditComment');
+            const editCommentButtons = document.querySelectorAll('.editCommentButton')
+
+            editButtons.forEach((editButton, index) => {
+                editButton.addEventListener('click', function() {
+                    editCommentContents[index].classList.add('hidden');
+                    inputEditCommentForms[index].classList.remove('hidden');
+                    commentTimes[index].classList.add('hidden');
+                });
+            });
+
+            cancelButtons.forEach((cancelButton, index) => {
+                cancelButton.addEventListener('click', function() {
+                    editCommentContents[index].classList.remove('hidden');
+                    inputEditCommentForms[index].classList.add('hidden');
+                    commentTimes[index].classList.remove('hidden');
+                });
+            });
+
+            inputEditComments.forEach((inputEditComment, index) => {
+                inputEditComment.addEventListener('input', () => {
+                    if (inputEditComment.value.trim() === "") {
+                        if (!editCommentButtons[index].classList.contains('hidden')) {
+                            editCommentButtons[index].classList.add('hidden');
+                        }
+                    } else {
+                        editCommentButtons[index].classList.remove('hidden');
+                    }
+                });
+            });
+
 
             likeForm.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -136,6 +194,19 @@ action="{{ route('posts.updateLike', $post->slug) }}"
 
             likeButton.addEventListener('click', function() {
                 likeButton.classList.toggle('liked');
+            });
+
+            commentContent.addEventListener('input', () => {
+                if (commentContent.value.trim() === "") {
+                    commentButton.disabled = true;
+                    if (!commentButton.classList.contains('hidden')) {
+                        commentButton.classList.add('hidden');
+                    }
+
+                } else {
+                    commentButton.disabled = false;
+                    commentButton.classList.remove('hidden');
+                }
             });
         </script>
     @endsection

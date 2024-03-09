@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -22,22 +23,22 @@ class CommentsController extends Controller
         return back();
     }
 
-    public function edit(Comment $comment)
-    {
-        return view('comments.edit', compact('comment'));
-    }
+    public function update(Request $request, $id)
+{
+    $comment = Comment::findOrFail($id);
 
-    public function update(Request $request, Comment $comment)
-    {
-        $request->validate([
-            'content' => 'required|string',
-        ]);
+    $request->validate([
+        'content' => 'required',
+    ]);
 
-        $comment->content = $request->content;
-        $comment->save();
+    $comment->content = $request->input('content'); 
+    $comment->save();
 
-        return redirect()->route('blog.show', $comment->post_id);
-    }
+    return back();
+}
+
+
+
 
     public function destroy(Comment $comment)
     {

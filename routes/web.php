@@ -56,6 +56,8 @@ use App\Http\Controllers\CommentsController;
 Route::get('/', [PagesController::class, 'index']);
 
 Route::resource('/comments', CommentsController::class);
+Route::put('/comments/{comment}', [CommentsController::class, 'update'])->name('comments.update');
+
 Route::get('/blog/search', [PostsController::class, 'search'])->name('blog.search');
 Route::get('/blog/viewSearch', [PostsController::class, 'viewSearch'])->name('blog.viewSearch');
 
