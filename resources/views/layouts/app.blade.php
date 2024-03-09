@@ -28,13 +28,13 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
-                <div class="sm:grid grid-cols-4 gap-2 m-auto text-center">
+                <div class="sm:grid grid-cols-4 gap-3 m-auto text-center font-medium">
                     <a class="nav-footer-color" href="{{ route('blog.index') }}">{{ __('News') }}</a>
                     <a class="nav-footer-color" href="{{ route('blog.viewSearch') }}">{{ __('Search') }}</a>
                     <a class="nav-footer-color" href="{{ route('about') }}">{{ __('About') }}</a>
                     <a class="nav-footer-color" href="{{ route('contact') }}">{{ __('Contact') }}</a>
                 </div>
-                <div class="sm:grid grid-cols-2 gap-2 m-auto text-center">
+                <div class="sm:grid grid-cols-2 gap-2 m-auto text-center font-medium">
                     @guest
                         <a class="nav-footer-color" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))

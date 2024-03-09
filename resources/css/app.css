@@ -27,7 +27,7 @@ img {
     color:white;
 }
 .nav-footer-color:hover{
-    color:#81b5aa;
+    color:#0E2D95;
 }
 
 .username {
@@ -35,7 +35,13 @@ img {
 }
 
 .nav-footer-background-color {
-    background-color: #19565D;
+    background-color: #0077B6;
+}
+
+.social-icons a:hover {
+    cursor: pointer;
+    background-color: white;
+    padding:0px 7px;
 }
 
 .imageInReadMore {

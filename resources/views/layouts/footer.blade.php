@@ -1,7 +1,7 @@
-<footer class="nav-footer-background-color py-20 mt-20">
-    <div class="sm:grid grid-cols-7 w-4/5 pb-10 m-auto text-center border-b-2 border-gray-700">
+<footer class="nav-footer-background-color pt-16 pb-5 mt-20">
+    <div class="sm:grid grid-cols-7 w-4/5 pb-10 m-auto text-center">
         {{-- <div> --}}
-        {{-- <h3 class="text-l sm:font-bold text-gray-100">
+        {{-- <h3 class="text-lg sm:font-bold text-gray-100">
                 Pages
             </h3> --}}
 
@@ -28,44 +28,44 @@
                 </li>
             </ul>
         </div> --}}
-        <div class="text-l sm:font-bold text-gray-100 nav-footer-color">
+        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
             <a href="/">
                 Home
             </a>
         </div>
-        <div class="text-l sm:font-bold text-gray-100 nav-footer-color">
+        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
             <a href="blog">
                 Blog
             </a>
         </div>
-        <div class="text-l sm:font-bold text-gray-100 nav-footer-color">
+        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
             <a href="/blog/viewSearch">
                 Search
             </a>
         </div>
-        <div class="text-l sm:font-bold text-gray-100 nav-footer-color">
+        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
             <a href="/about">
                 About Us
             </a>
         </div>
-        <div class="text-l sm:font-bold text-gray-100 nav-footer-color">
+        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
             <a href="/contact">
                 Contact Us
             </a>
         </div>
-        <div class="text-l sm:font-bold text-gray-100 nav-footer-color">
+        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
             <a href="/login">
                 Login
             </a>
         </div>
-        <div class="text-l sm:font-bold text-gray-100 nav-footer-color">
+        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
             <a href="/register">
                 Register
             </a>
         </div>
 
         {{-- <div>
-            <h3 class="text-l sm:font-bold text-gray-100">
+            <h3 class="text-lg sm:font-bold text-gray-100">
                 Find Us
             </h3>
             
@@ -95,7 +95,7 @@
         </div>
 
         <div>
-            <h3 class="text-l sm:font-bold text-gray-100">
+            <h3 class="text-lg sm:font-bold text-gray-100">
                 Latest posts
             </h3>
 
@@ -123,6 +123,29 @@
             </ul>
         </div> --}}
     </div>
+    <div class='sm:grid grid-cols-4 w-4/5 pt-10 pb-16 m-auto text-center border-b border-gray-900 text-3xl social-icons'>
+        <div>
+            <a href="#">
+                <i class="fab fa-facebook-square"></i>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <i class="fab fa-instagram-square"></i>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <i class="fab fa-pinterest-square"></i>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <i class="fab fa-youtube-square"></i>
+            </a>
+        </div>
+    </div>
+    
     <p class="w-25 w-4/5 pb-3 m-auto text-xs text-gray-100 pt-6">
         Copyright 2017-2021 Code With Dary. Copyright 2024 TechNewsWorld Code With Kim Fui Leung. All Rights Reserved
     </p>
