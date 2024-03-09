@@ -11,7 +11,7 @@ class Post extends Model
     use HasFactory;
     use Sluggable;
 
-    protected $fillable = ['title', 'slug', 'description', 'image_path', 'user_id'];//'like','commits'
+    protected $fillable = ['title','subtitle', 'slug', 'description', 'image_path', 'user_id'];//'like','commits'
 
     public function user()
     {
@@ -26,4 +26,9 @@ class Post extends Model
             ]
         ];
     }
+    public function likes()
+{
+    return $this->belongsToMany(User::class, 'post_user', 'post_id', 'user_id')->withTimestamps();
+}
+
 }

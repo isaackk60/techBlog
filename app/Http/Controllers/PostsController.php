@@ -88,6 +88,7 @@ class PostsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'subtitle'=>'required',
             'description' => 'required',
             'image' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
@@ -98,6 +99,7 @@ class PostsController extends Controller
 
         Post::create([
             'title' => $request->input('title'),
+            'subtitle' => $request->input('subtitle'),
             'description' => $request->input('description'),
             'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
             'image_path' => $newImageName,
@@ -145,12 +147,14 @@ class PostsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'subtitle' => 'required',
             'description' => 'required',
         ]);
 
         Post::where('slug', $slug)
             ->update([
                 'title' => $request->input('title'),
+                'subtitle' => $request->input('subtitle'),
                 'description' => $request->input('description'),
                 'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
                 'user_id' => auth()->user()->id,
@@ -160,38 +164,85 @@ class PostsController extends Controller
             ->with('message', 'Your post has been updated!');
     }
 
-    public function updateLike($slug)
+    // public function updateLike($slug)
+    // {
+    //     $post = Post::where('slug', $slug)->first();
+
+
+    //     $originalUpdatedAt = $post->updated_at;
+
+    //     $post->like += 1;
+    //     $post->save();
+
+    //     // Restore the original updated_at timestamp
+    //     $post->forceFill(['updated_at' => $originalUpdatedAt])->save();
+
+    //     return back();
+
+    // }
+    // public function updateDisLike($slug)
+    // {
+    //     $post = Post::where('slug', $slug)->first();
+
+
+    //     $originalUpdatedAt = $post->updated_at;
+
+    //     $post->like -= 1;
+    //     $post->save();
+
+    //     // Restore the original updated_at timestamp
+    //     $post->forceFill(['updated_at' => $originalUpdatedAt])->save();
+
+    //     return back();
+
+    // }
+
+    public function updateLike(Request $request, $slug)
     {
-        $post = Post::where('slug', $slug)->first();
-
-
+        $user = auth()->user();
+        $post = Post::where('slug', $slug)->firstOrFail();
         $originalUpdatedAt = $post->updated_at;
-
-        $post->like += 1;
+        $isLiked = $user->likes()->where('post_id', $post->id)->exists();
+    
+        if ($isLiked) {
+            $user->likes()->detach($post->id);
+            $post->like -= 1;
+        } else {
+            $user->likes()->attach($post->id);
+            $post->like += 1;
+        }
+    
         $post->save();
-
-        // Restore the original updated_at timestamp
         $post->forceFill(['updated_at' => $originalUpdatedAt])->save();
-
+    
         return back();
-
     }
-    public function updateDisLike($slug)
+    
+    public function updateDislike(Request $request, $slug)
     {
-        $post = Post::where('slug', $slug)->first();
-
-
+        $user = auth()->user();
+        $post = Post::where('slug', $slug)->firstOrFail();
         $originalUpdatedAt = $post->updated_at;
-
-        $post->like -= 1;
+        $isLikedOrDisliked = $user->likes()->where('post_id', $post->id)->exists();
+    
+        if ($isLikedOrDisliked) {
+            $user->likes()->detach($post->id);
+            $post->like -= 1;
+        } else {
+            $user->likes()->attach($post->id);
+            $post->like += 1;
+        }
+    
         $post->save();
-
-        // Restore the original updated_at timestamp
         $post->forceFill(['updated_at' => $originalUpdatedAt])->save();
-
+    
         return back();
-
     }
+    
+
+
+
+
 
 
 

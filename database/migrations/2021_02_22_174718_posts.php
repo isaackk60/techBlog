@@ -14,9 +14,10 @@ class Posts extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table){
-            $table->increments('id');
+            $table->id();
             $table->string('slug');
             $table->string('title');
+            $table->longText('subtitle');
             $table->longText('description');
             $table->string('image_path');
             $table->timestamps();

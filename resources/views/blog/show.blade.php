@@ -2,35 +2,39 @@
 
 @section('content')
     <div class="w-4/5 m-auto text-left">
-        <div class="sm:grid grid-cols-2 mx-auto py-15 ">
+        <div class="sm:grid grid-cols-2 mx-auto pt-15 pb-7 ">
             <h1 class="titleInReadMore">
                 {{ $post->title }}
             </h1>
 
             {{-- /blog/{{ $post->slug }}/dislike --}}
             <div class="sm:flex sm:flex-wrap items-center gap-4 mx-auto">
-                <form action="/blog/{{ $post->slug }}/dislike" method="POST" enctype="multipart/form-data">
+                {{-- <form action="/blog/{{ $post->slug }}/dislike" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <button type="submit"
                         class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-3 px-6 rounded-3xl">
                         <i class="fas fa-thumbs-down"></i>
                     </button>
-                </form>
+                </form> --}}
                 <div class="loveOnSlugs"> ♥ {{ $post->like }}</div>
-                <form action="/blog/{{ $post->slug }}/like" method="POST" enctype="multipart/form-data">
+                <form id="likeForm" action="/blog/{{ $post->slug }}/like" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <button type="submit"
+                    <button id="likeButton" type="submit"
                         class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-3 px-6 rounded-3xl">
-                        <i class="fas fa-thumbs-up"></i>
+                        <i id="likeIcon" class="fas fa-thumbs-up"></i>
                     </button>
                 </form>
                 <div>
                 </div>
             </div>
         </div>
-
+        <div>
+            <h2 class="text-2xl font-semibold pb-7 text-gray-600">
+                {{ $post->subtitle }}
+            </h2>
+        </div>
         {{-- // can try to use class="w-4/5 m-auto" ---they are same meaning --}}
         <div class="imageInReadMore">
             <div>
@@ -44,15 +48,17 @@
             </span>
 
             {{-- <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light"> --}}
-                {{-- {{ $post->description }} --}}
-                {{-- {!! nl2br(e($post->description)) !!} --}}
-                @foreach (explode("\n", $post->description) as $paragraph)
-                    <p class="text-xl text-gray-700 pt-8 leading-8 font-light">{{ $paragraph }}</p>
-                @endforeach
+            {{-- {{ $post->description }} --}}
+            {{-- {!! nl2br(e($post->description)) !!} --}}
+            @foreach (explode("\n", $post->description) as $paragraph)
+                @if (!empty(trim($paragraph)))
+                    <p class="text-xl text-gray-700 pt-8 leading-8 font-normal">{{ $paragraph }}</p>
+                @endif
+            @endforeach
             {{-- </p> --}}
         </div>
-        @if (isset(Auth::user()->id))
-            {{-- <form 
+        {{-- @if (isset(Auth::user()->id)) --}}
+        {{-- <form 
 action="{{ route('posts.updateLike', $post->slug) }}"
 
         method="POST"
@@ -72,5 +78,26 @@ action="{{ route('posts.updateLike', $post->slug) }}"
             Update Post
         </button>
     </form> --}}
-        @endif
+        {{-- @endif --}}
+
+        <script>
+            const likeForm = document.getElementById('likeForm');
+            const likeButton = document.getElementById('likeButton');
+            const likeIcon = document.getElementById('likeIcon');
+
+            likeForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const actionUrl = likeButton.classList.contains('liked') ? '/blog/{{ $post->slug }}/dislike' :
+                    '/blog/{{ $post->slug }}/like';
+
+                likeForm.action = actionUrl;
+
+                likeForm.submit();
+            });
+
+            likeButton.addEventListener('click', function() {
+                likeButton.classList.toggle('liked');
+            });
+        </script>
     @endsection

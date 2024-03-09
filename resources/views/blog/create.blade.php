@@ -34,6 +34,11 @@
             placeholder="Title..."
             class="px-2 bg-transparent block border-b-2 w-full h-20 text-5xl outline-none">
 
+            <textarea 
+            name="subtitle"
+            placeholder="Subtitle..."
+            class="p-2 leading-7 bg-transparent block border-b-2 w-full h-20 text-2xl font-bold outline-none"></textarea>
+
         <textarea 
             name="description"
             placeholder="Description..."
