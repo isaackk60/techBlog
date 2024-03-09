@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,7 @@ use App\Http\Controllers\PostsController;
 
 Route::get('/', [PagesController::class, 'index']);
 
-
+Route::resource('/comments', CommentsController::class);
 Route::get('/blog/search', [PostsController::class, 'search'])->name('blog.search');
 Route::get('/blog/viewSearch', [PostsController::class, 'viewSearch'])->name('blog.viewSearch');
 

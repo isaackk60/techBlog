@@ -57,6 +57,44 @@
             @endforeach
             {{-- </p> --}}
         </div>
+
+        <h2>Comments</h2>
+        @foreach ($post->comments as $comment)
+            <div class="comment">
+                <p>{{ $comment->content }}</p>
+                
+                <!-- Check if the authenticated user is the owner of the comment -->
+                @if (Auth::check() && $comment->user_id === Auth::id())
+                    <div class="actions">
+                        <!-- Edit link -->
+                        <a href="{{ route('comments.edit', $comment) }}" class="btn btn-primary">Edit</a>
+                        
+                        <!-- Delete form -->
+                        <form action="{{ route('comments.destroy', $comment) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                @endif
+            </div>
+        @endforeach
+        
+        @if (Auth::check())
+            <h2>Add a Comment</h2>
+            <form action="{{ route('comments.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                <textarea name="content" rows="3"></textarea>
+                <button type="submit">Add Comment</button>
+            </form>
+        @endif
+
+
+
+
+
+
         {{-- @if (isset(Auth::user()->id)) --}}
         {{-- <form 
 action="{{ route('posts.updateLike', $post->slug) }}"

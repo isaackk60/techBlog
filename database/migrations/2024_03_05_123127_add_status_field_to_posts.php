@@ -15,7 +15,6 @@ class AddStatusFieldToPosts extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->integer('like')->default(0)->after('description');
-            $table->string('comments')->default('[]')->after('like');
         });
     }
 
@@ -28,8 +27,6 @@ class AddStatusFieldToPosts extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->dropColumn('like');
-            $table->dropColumn('comments');
-            //
         });
     }
 }
