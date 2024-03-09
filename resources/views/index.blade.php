@@ -7,7 +7,8 @@
                 <h1 class="sm:text-white background-image-text uppercase font-bold text-shadow-md pb-14">
                     Do You Want To Stay Current with New Technology?
                 </h1>
-                <a href="/blog" class="text-center background-image-button text-gray-700 py-2 px-4 font-bold text-xl uppercase">
+                <a href="/blog"
+                    class="text-center background-image-button text-gray-700 py-2 px-4 font-bold text-xl uppercase">
                     Read More
                 </a>
             </div>
@@ -41,14 +42,18 @@
 
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-t border-gray-200">
         <div class="image-padding">
-  <img src="https://media.licdn.com/dms/image/D5612AQE1U31GRHLAJw/article-cover_image-shrink_720_1280/0/1704266273331?e=2147483647&v=beta&t=aqDRVpuv66riLVH3V7sAjwQPjR_CBLGhWJVqW7RzuLs" alt="">
-</div>      
-<div class="flex flex-col justify-center">
-    <h2 class="text-3xl font-semibold mb-4">Stay Updated</h2>
-  <p class="text-lg font-medium text-gray-700 leading-relaxed mb-6">At TechNewsWorld, we understand the importance of staying informed in today's fast-paced digital age. That's why we strive to bring you timely and accurate information about the ever-evolving world of technology. From groundbreaking innovations to industry trends and analysis, we've got you covered.</p>
-</div>
+            <img src="https://media.licdn.com/dms/image/D5612AQE1U31GRHLAJw/article-cover_image-shrink_720_1280/0/1704266273331?e=2147483647&v=beta&t=aqDRVpuv66riLVH3V7sAjwQPjR_CBLGhWJVqW7RzuLs"
+                alt="">
+        </div>
+        <div class="flex flex-col justify-center">
+            <h2 class="text-3xl font-semibold mb-4">Stay Updated</h2>
+            <p class="text-lg font-medium text-gray-700 leading-relaxed mb-6">At TechNewsWorld, we understand the importance
+                of staying informed in today's fast-paced digital age. That's why we strive to bring you timely and accurate
+                information about the ever-evolving world of technology. From groundbreaking innovations to industry trends
+                and analysis, we've got you covered.</p>
+        </div>
 
-</div>
+    </div>
 
     <div class="text-center p-15 bg-black text-white">
         <h2 class="text-2xl pb-5 text-l">
@@ -79,7 +84,9 @@
         </h2>
 
         <p class="m-auto w-4/5 text-gray-700 leading-relaxed font-medium">
-            Stay ahead with our latest articles covering cutting-edge technology, insightful analyses, and exciting innovations from the world of tech. Whether you're a tech enthusiast or a professional, our blog delivers curated content to keep you informed and inspired.
+            Stay ahead with our latest articles covering cutting-edge technology, insightful analyses, and exciting
+            innovations from the world of tech. Whether you're a tech enthusiast or a professional, our blog delivers
+            curated content to keep you informed and inspired.
         </p>
     </div>
 
@@ -90,7 +97,7 @@
                     PHP
                 </span> --}}
 
-                {{-- <h3 class="text-xl font-bold py-10">
+    {{-- <h3 class="text-xl font-bold py-10">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas necessitatibus dolorum error culpa
                     laboriosam. Enim voluptas earum repudiandae consequuntur ad? Expedita labore aspernatur facilis quasi
                     ex? Nemo hic placeat et?

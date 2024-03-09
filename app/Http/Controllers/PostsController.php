@@ -11,7 +11,7 @@ class PostsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show','viewSearch','search']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'viewSearch', 'search']]);
     }
     /**
      * Display a listing of the resource.
@@ -25,24 +25,23 @@ class PostsController extends Controller
     // }
 
     public function index(Request $request)
-{
-    $query = Post::query();
+    {
+        $query = Post::query();
 
 
-    if ($request->has('sort')) {
-        $sortField = $request->sort;
-        if ($sortField == 'like') {
-            $query->orderBy('like', 'DESC');
-        } elseif ($sortField == 'updated_at') {
+        if ($request->has('sort')) {
+            $sortField = $request->sort;
+            if ($sortField == 'like') {
+                $query->orderBy('like', 'DESC');
+            } elseif ($sortField == 'updated_at') {
+                $query->orderBy('updated_at', 'DESC');
+            }
+        } else {//default
             $query->orderBy('updated_at', 'DESC');
         }
-    } 
-    else {//default
-        $query->orderBy('updated_at', 'DESC');
-    }
 
-    return view('blog.index')->with('posts', $query->get());
-}
+        return view('blog.index')->with('posts', $query->get());
+    }
 
     public function viewSearch()
     {
@@ -53,7 +52,7 @@ class PostsController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-    
+
         // Check if a search query exists
         if ($query) {
             // Apply search filter only when a query is provided
@@ -62,10 +61,10 @@ class PostsController extends Controller
             // Fetch all posts if no query is provided
             $posts = Post::orderBy('updated_at', 'DESC')->get();
         }
-    
+
         return view('blog.viewSearch', compact('posts'));
     }
-    
+
 
 
     /**
@@ -88,7 +87,7 @@ class PostsController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'subtitle'=>'required',
+            'subtitle' => 'required',
             'description' => 'required',
             'image' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
@@ -153,12 +152,12 @@ class PostsController extends Controller
 
         Post::where('slug', $slug)
             ->update([
-                'title' => $request->input('title'),
-                'subtitle' => $request->input('subtitle'),
-                'description' => $request->input('description'),
-                'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
-                'user_id' => auth()->user()->id,
-            ]);
+                    'title' => $request->input('title'),
+                    'subtitle' => $request->input('subtitle'),
+                    'description' => $request->input('description'),
+                    'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
+                    'user_id' => auth()->user()->id,
+                ]);
 
         return redirect('/blog')
             ->with('message', 'Your post has been updated!');
@@ -203,7 +202,7 @@ class PostsController extends Controller
         $post = Post::where('slug', $slug)->firstOrFail();
         $originalUpdatedAt = $post->updated_at;
         $isLiked = $user->likes()->where('post_id', $post->id)->exists();
-    
+
         if ($isLiked) {
             $user->likes()->detach($post->id);
             $post->like -= 1;
@@ -211,20 +210,20 @@ class PostsController extends Controller
             $user->likes()->attach($post->id);
             $post->like += 1;
         }
-    
+
         $post->save();
         $post->forceFill(['updated_at' => $originalUpdatedAt])->save();
-    
+
         return back();
     }
-    
+
     public function updateDislike(Request $request, $slug)
     {
         $user = auth()->user();
         $post = Post::where('slug', $slug)->firstOrFail();
         $originalUpdatedAt = $post->updated_at;
         $isLikedOrDisliked = $user->likes()->where('post_id', $post->id)->exists();
-    
+
         if ($isLikedOrDisliked) {
             $user->likes()->detach($post->id);
             $post->like -= 1;
@@ -232,13 +231,13 @@ class PostsController extends Controller
             $user->likes()->attach($post->id);
             $post->like += 1;
         }
-    
+
         $post->save();
         $post->forceFill(['updated_at' => $originalUpdatedAt])->save();
-    
+
         return back();
     }
-    
+
 
 
 

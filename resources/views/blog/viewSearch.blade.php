@@ -30,8 +30,8 @@
         <form action="/blog/search" method="GET">
             <input type="text" name="query" placeholder="Search"
                 class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
-            <button type="submit" class="ml-2 px-4 py-2.5 button-color text-white rounded-md hover:bg-blue-600"><i
-                    class="fas fa-search"></i></button>
+            <button type="submit" class="ml-2 px-4 py-2.5 button-color text-white rounded-md hover:bg-blue-600">
+                <i class="fas fa-search"></i></button>
         </form>
     </div>
     @foreach ($posts as $post)
@@ -95,12 +95,11 @@
                     @endif
                 </div>
             </div>
-        
         @endif
     @endforeach
     @if ($posts->isEmpty())
-    <div class="w-4/5 mx-auto py-15">
-        <h3 class="text-6xl font-semibold text-center">There are no related news</h3>
-    </div>
+        <div class="w-4/5 mx-auto py-15">
+            <h3 class="text-6xl font-semibold text-center">There are no related news</h3>
+        </div>
     @endif
 @endsection

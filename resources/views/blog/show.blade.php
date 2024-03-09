@@ -23,7 +23,11 @@
                     @method('PUT')
                     <button id="likeButton" type="submit"
                         class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-3 px-6 rounded-3xl">
+                        @if(Auth::check() && $post->likedByUser(Auth::user()))
+                        <i id="likeIcon" class="fas fa-thumbs-down"></i>
+                        @else
                         <i id="likeIcon" class="fas fa-thumbs-up"></i>
+                        @endif
                     </button>
                 </form>
                 <div>
@@ -59,8 +63,9 @@
         </div>
         <div class="w-4/5 m-auto text-left pt-15">
             <h2 class="text-3xl font-semibold">Comments</h2>
-          
-            @foreach ($post->comments as $comment)  {{-- ->take(3) if need--}}
+
+            @foreach ($post->comments as $comment)
+                {{-- ->take(3) if need --}}
                 <div>
                     <p class="editCommentContent text-xl text-gray-700 pt-8 leading-8 font-normal">
                         {{ $comment->content }}</p>
@@ -69,7 +74,8 @@
                         class="hidden inputEditCommentForm ">
                         @csrf
                         @method('PUT')
-                        <textarea name="content" placeholder="Add a Comment..." class="inputEditComment p-2 leading-7 bg-transparent block border-2 w-full h-20 text-xl outline-none my-9">{{ $comment->content }}</textarea>
+                        <textarea name="content" placeholder="Add a Comment..."
+                            class="inputEditComment p-2 leading-7 bg-transparent block border-2 w-full h-20 text-xl outline-none my-9">{{ $comment->content }}</textarea>
                         <button type="submit"
                             class="editCommentButton uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">Save</button>
                         <button id="cancelButton"
