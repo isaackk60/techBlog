@@ -105,6 +105,11 @@
                     @endif
                 </div>
             @endforeach
+            @if($post->comments->isEmpty())
+            <div class="mx-auto py-5">
+                <h3 class="text-2xl font-medium text-center">There are no comments yet</h3>
+            </div>
+            @endif
 
             @if (Auth::check())
                 <form action="{{ route('comments.store') }}" method="POST">
