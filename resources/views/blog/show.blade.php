@@ -21,14 +21,17 @@
                 <form id="likeForm" action="/blog/{{ $post->slug }}/like" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <button id="likeButton" type="submit"
-                        class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-3 px-6 rounded-3xl">
-                        @if(Auth::check() && $post->likedByUser(Auth::user()))
-                        <i id="likeIcon" class="fas fa-thumbs-down"></i>
-                        @else
-                        <i id="likeIcon" class="fas fa-thumbs-up"></i>
-                        @endif
-                    </button>
+                    @if (Auth::check() && $post->likedByUser(Auth::user()))
+                        <button id="likeButton" type="submit"
+                            class="uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-3 px-6 rounded-3xl">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                    @else
+                        <button id="likeButton" type="submit"
+                            class="uppercase bg-gray-500 text-gray-100 text-lg font-extrabold py-3 px-6 rounded-3xl">
+                            <i class="fas fa-thumbs-up"></i>
+                        </button>
+                    @endif
                 </form>
                 <div>
                 </div>
@@ -145,7 +148,6 @@ action="{{ route('posts.updateLike', $post->slug) }}"
         <script>
             const likeForm = document.getElementById('likeForm');
             const likeButton = document.getElementById('likeButton');
-            const likeIcon = document.getElementById('likeIcon');
             const commentContent = document.getElementById('commentContent');
             const commentButton = document.getElementById('commentButton');
 
