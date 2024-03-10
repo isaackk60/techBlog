@@ -69,7 +69,7 @@
 
             @foreach ($post->comments as $comment)
                 {{-- ->take(3) if need --}}
-                <div>
+                <div class="comment-container" >
                     <p class="editCommentContent text-xl text-gray-700 pt-8 leading-8 font-normal">
                         {{ $comment->content }}</p>
 
@@ -151,40 +151,34 @@ action="{{ route('posts.updateLike', $post->slug) }}"
             const commentContent = document.getElementById('commentContent');
             const commentButton = document.getElementById('commentButton');
 
-
-            const editButtons = document.querySelectorAll('.editButton');
-            const editCommentContents = document.querySelectorAll('.editCommentContent');
-            const inputEditCommentForms = document.querySelectorAll('.inputEditCommentForm');
-            const commentTimes = document.querySelectorAll('.commentTime');
             const cancelButtons = document.querySelectorAll('.cancelButton');
-            const inputEditComments = document.querySelectorAll('.inputEditComment');
-            const editCommentButtons = document.querySelectorAll('.editCommentButton')
+            const editButtons = document.querySelectorAll('.editButton');
 
-            editButtons.forEach((editButton, index) => {
-                editButton.addEventListener('click', function() {
-                    editCommentContents[index].classList.add('hidden');
-                    inputEditCommentForms[index].classList.remove('hidden');
-                    commentTimes[index].classList.add('hidden');
+
+            editButtons.forEach(editButton => {
+                editButton.addEventListener('click', function(event) {
+                    const commentContainer = event.target.closest('.comment-container');
+                    const commentContent = commentContainer.querySelector('.editCommentContent');
+                    const editForm = commentContainer.querySelector('.inputEditCommentForm');
+                    const commentTimes = commentContainer.querySelector('.commentTime');
+
+                    commentContent.style.display = 'none';
+                    commentTimes.style.display = 'none';
+                    editForm.style.display = 'block';
                 });
             });
 
-            cancelButtons.forEach((cancelButton, index) => {
-                cancelButton.addEventListener('click', function() {
-                    editCommentContents[index].classList.remove('hidden');
-                    inputEditCommentForms[index].classList.add('hidden');
-                    commentTimes[index].classList.remove('hidden');
-                });
-            });
 
-            inputEditComments.forEach((inputEditComment, index) => {
-                inputEditComment.addEventListener('input', () => {
-                    if (inputEditComment.value.trim() === "") {
-                        if (!editCommentButtons[index].classList.contains('hidden')) {
-                            editCommentButtons[index].classList.add('hidden');
-                        }
-                    } else {
-                        editCommentButtons[index].classList.remove('hidden');
-                    }
+            cancelButtons.forEach(cancelButton => {
+                cancelButton.addEventListener('click', function(event) {
+                    const commentContainer = event.target.closest('.comment-container');
+                    const commentContent = commentContainer.querySelector('.editCommentContent');
+                    const editForm = commentContainer.querySelector('.inputEditCommentForm');
+                    const commentTimes = commentContainer.querySelector('.commentTime');
+
+                    commentContent.style.display = 'block';
+                    commentTimes.style.display = 'block';
+                    editForm.style.display = 'none';
                 });
             });
 
