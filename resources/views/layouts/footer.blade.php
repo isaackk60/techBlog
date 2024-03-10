@@ -1,5 +1,5 @@
 <footer class="nav-footer-background-color pt-16 pb-5 mt-20">
-    <div class="sm:grid grid-cols-7 w-4/5 pb-10 m-auto text-center">
+    <div class="sm:grid grid-cols-7 w-4/5 pb-5 m-auto text-center">
         {{-- <div> --}}
         {{-- <h3 class="text-lg sm:font-bold text-gray-100">
                 Pages
