@@ -159,3 +159,28 @@
     </div>
     </div>
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>//stackflow
+    var images = [
+        'https://images.unsplash.com/photo-1497493292307-31c376b6e479?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHRlY2glMjBibG9nfGVufDB8fDB8fHww',
+        'https://hugagency.com/folder/cases/tesla-user-interface.jpg',
+        'https://media.istockphoto.com/id/1494104649/photo/ai-chatbot-artificial-intelligence-digital-concept.jpg?s=612x612&w=0&k=20&c=1Zq2sj3W0tWcpc-n1fVt4dQQOBGhtwcAk1H2eQ5MAbI='
+    ];
+    var nextimage = 0;
+
+    var preloadedImages = [];
+    images.forEach(function(imageUrl) {
+        var img = new Image();
+        img.src = imageUrl;
+        preloadedImages.push(img);
+    });
+
+    function changeBackground() {
+        if (nextimage >= images.length) { nextimage = 0; }
+        $('.background-image').css('background-image', 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("' + images[nextimage++] + '")');
+        setTimeout(changeBackground, 4500);
+    }
+
+    changeBackground();
+</script>
