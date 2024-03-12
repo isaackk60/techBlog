@@ -28,78 +28,84 @@
 
     <div class="w-4/5 mx-auto pt-15">
         <form action="/blog" method="GET">
-            <label>Sort by</label>
-            <select name="sort" onchange="this.form.submit()" class="selectSort cursor-pointer">
+            <label for="sort">Sort by</label>
+            <select name="sort" onchange="this.form.submit()" class="ml-3 cursor-pointer pl-2 pr-5 border-2 border-gray-500">
                 <option value="updated_at" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'updated_at') {
                     echo 'selected';
-                } ?>>Latest</option>
+                } ?>>Most Recent</option>
+                <option value="updated_at_asc" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'updated_at_asc') {
+                    echo 'selected';
+                } ?>>Oldest First</option>
                 <option value="like" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'like') {
                     echo 'selected';
-                } ?>>Like</option>
+                } ?>>Most Liked</option>
+                <option value="like_asc" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'like_asc') {
+                    echo 'selected';
+                } ?>>Least Liked</option>
             </select>
         </form>
     </div>
-<div class="mb-20">
-    @foreach ($posts as $post)
-        <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
-            <div class="image-padding">
-                <img src="{{ asset('images/' . $post->image_path) }}" alt="">
-            </div>
-            <div>
-                <h2 class="text-gray-700 font-bold text-2xl pb-4">
-                    {{ $post->title }}
-                </h2>
+    <div class="mb-20">
+        @foreach ($posts as $post)
+            <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
+                <div class="image-padding">
+                    <img src="{{ asset('images/' . $post->image_path) }}" alt="">
+                </div>
+                <div>
+                    <h2 class="text-gray-700 font-bold text-2xl pb-4">
+                        {{ $post->title }}
+                    </h2>
 
-                <span class="text-gray-500">
-                    By <span class="font-bold italic text-gray-800">{{ $post->user->name }}</span>, Created on
-                    {{ date('jS M Y', strtotime($post->updated_at)) }}
-                </span>
+                    <span class="text-gray-500">
+                        By <span class="font-bold italic text-gray-800">{{ $post->user->name }}</span>, Created on
+                        {{ date('jS M Y', strtotime($post->updated_at)) }}
+                    </span>
 
-                {{-- <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
+                    {{-- <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
                 {{ $post->description }}
             </p> --}}
-                <?php
-                $wordCount = str_word_count($post->description);
-                
-                if ($wordCount > 40) {
-                    $words = explode(' ', $post->description);
-                    $shortDescription = implode(' ', array_slice($words, 0, 40));
-                    $shortDescription .= ' ...';
-                } else {
-                    $shortDescription = $post->description;
-                }
-                
-                echo "<p class='text-base text-gray-700 pt-2 pb-10 leading-6 font-light'>$shortDescription</p>";
-                ?>
+                    <?php
+                    $wordCount = str_word_count($post->description);
+                    
+                    if ($wordCount > 40) {
+                        $words = explode(' ', $post->description);
+                        $shortDescription = implode(' ', array_slice($words, 0, 40));
+                        $shortDescription .= ' ...';
+                    } else {
+                        $shortDescription = $post->description;
+                    }
+                    
+                    echo "<p class='text-base text-gray-700 pt-2 pb-10 leading-6 font-light'>$shortDescription</p>";
+                    ?>
 
 
-                <a href="/blog/{{ $post->slug }}"
-                    class="uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-                    Read More
-                </a>
+                    <a href="/blog/{{ $post->slug }}"
+                        class="uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+                        Read More
+                    </a>
 
-                @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
-                    <span class="float-right">
-                        <a href="/blog/{{ $post->slug }}/edit"
-                            class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">
-                            Edit
-                        </a>
-                    </span>
+                    @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
+                        <span class="float-right">
+                            <a href="/blog/{{ $post->slug }}/edit"
+                                class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">
+                                Edit
+                            </a>
+                        </span>
 
-                    <span class="float-right">
-                        <form action="/blog/{{ $post->slug }}" method="POST">
-                            @csrf
-                            @method('delete')
+                        <span class="float-right">
+                            <form action="/blog/{{ $post->slug }}" method="POST">
+                                @csrf
+                                @method('delete')
 
-                            <button class="text-red-500 pr-3" type="submit">
-                                Delete
-                            </button>
+                                <button class="text-red-500 pr-3" type="submit">
+                                    Delete
+                                </button>
 
-                        </form>
-                    </span>
-                @endif
+                            </form>
+                        </span>
+                    @endif
+                </div>
             </div>
-        </div>
-    @endforeach
-</div>
+        @endforeach
+    </div>
 @endsection

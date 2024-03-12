@@ -37,7 +37,7 @@ TechNewsWorld is an tech blog, your go-to source for the latest in technology ne
 ## Screenshots
 ![Main page sideshow image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/main_page.jpg) <br/>
 ![Main page show recent news image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/main_page_2.png) <br/>
-![News page image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/News_page.png) <br/>
+![News page image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/news_page.png) <br/>
 ![Search page image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/search_page.jpg) <br/>
 ![Like button image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/like_button.png) <br/>
 ![Comments image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/comments.png)

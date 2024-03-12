@@ -90,7 +90,7 @@ img {
     font-size: 20px;
 }
 
-.selectSort {
+/* .selectSort {
     background-color: #f7fafc;
     text-transform: uppercase;
     color: #1a202c;
@@ -100,7 +100,7 @@ img {
     border-width: 2px;
     border-color: #475569;
     margin-left: 0.5rem;
-}
+} */
 
 @media (max-width: 640px) {
     .sm\:flex {

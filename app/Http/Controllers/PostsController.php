@@ -35,6 +35,10 @@ class PostsController extends Controller
                 $query->orderBy('like', 'DESC');
             } elseif ($sortField == 'updated_at') {
                 $query->orderBy('updated_at', 'DESC');
+            }elseif ($sortField == 'updated_at_asc') {
+                $query->orderBy('updated_at', 'ASC');
+            }elseif( $sortField == 'like_asc') {
+                $query->orderBy('like', 'ASC');
             }
         } else {//default
             $query->orderBy('updated_at', 'DESC');
