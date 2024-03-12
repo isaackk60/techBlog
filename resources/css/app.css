@@ -48,8 +48,10 @@ img {
 
 .social-icons a:hover {
     cursor: pointer;
-    background-color: white;
     padding: 0px 7px;
+}
+.social-icons a i:hover{
+    color:#0E2D95;
 }
 
 .imageInReadMore {

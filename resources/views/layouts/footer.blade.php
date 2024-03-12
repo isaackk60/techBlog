@@ -1,11 +1,12 @@
 <footer class="nav-footer-background-color pt-16 pb-5 mt-20">
-    <div class="sm:grid grid-cols-7 w-4/5 pb-5 m-auto text-center">
-        {{-- <div> --}}
-        {{-- <h3 class="text-lg sm:font-bold text-gray-100">
+    @guest
+        <div class="sm:grid grid-cols-7 w-4/5 pb-5 m-auto text-center">
+            {{-- <div> --}}
+            {{-- <h3 class="text-lg sm:font-bold text-gray-100">
                 Pages
             </h3> --}}
 
-        {{-- <ul class="py-4 sm:text-s pt-4 nav-footer-color">
+            {{-- <ul class="py-4 sm:text-s pt-4 nav-footer-color">
                 <li class="pb-1">
                     <a href="/">
                         Home
@@ -28,43 +29,43 @@
                 </li>
             </ul>
         </div> --}}
-        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
-            <a href="/">
-                Home
-            </a>
-        </div>
-        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
-            <a href="blog">
-                Blog
-            </a>
-        </div>
-        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
-            <a href="/blog/viewSearch">
-                Search
-            </a>
-        </div>
-        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
-            <a href="/about">
-                About Us
-            </a>
-        </div>
-        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
-            <a href="/contact">
-                Contact Us
-            </a>
-        </div>
-        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
-            <a href="/login">
-                Login
-            </a>
-        </div>
-        <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
-            <a href="/register">
-                Register
-            </a>
-        </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/">
+                    Home
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="blog">
+                    Blog
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/blog/viewSearch">
+                    Search
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/about">
+                    About Us
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/contact">
+                    Contact Us
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/login">
+                    Login
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/register">
+                    Register
+                </a>
+            </div>
 
-        {{-- <div>
+            {{-- <div>
             <h3 class="text-lg sm:font-bold text-gray-100">
                 Find Us
             </h3>
@@ -122,30 +123,68 @@
                 </li>
             </ul>
         </div> --}}
+        </div>
+    @else
+        <div class="sm:grid grid-cols-6 w-4/5 pb-5 m-auto text-center">
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/">
+                    Home
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="blog">
+                    Blog
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/blog/viewSearch">
+                    Search
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/about">
+                    About Us
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="/contact">
+                    Contact Us
+                </a>
+            </div>
+            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                    {{ csrf_field() }}
+                </form>
+            </div>
+        </div>
+    @endguest
+    <div
+        class='sm:grid grid-cols-4 w-4/5 pt-10 pb-16 m-auto text-center border-b border-gray-900 text-3xl social-icons'>
+        <div>
+            <a href="#">
+                <i class="fab fa-facebook-square text-gray-100"></i>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <i class="fab fa-instagram-square text-gray-100"></i>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <i class="fab fa-pinterest-square text-gray-100"></i>
+            </a>
+        </div>
+        <div>
+            <a href="#">
+                <i class="fab fa-youtube-square text-gray-100"></i>
+            </a>
+        </div>
     </div>
-    <div class='sm:grid grid-cols-4 w-4/5 pt-10 pb-16 m-auto text-center border-b border-gray-900 text-3xl social-icons'>
-        <div>
-            <a href="#">
-                <i class="fab fa-facebook-square"></i>
-            </a>
-        </div>
-        <div>
-            <a href="#">
-                <i class="fab fa-instagram-square"></i>
-            </a>
-        </div>
-        <div>
-            <a href="#">
-                <i class="fab fa-pinterest-square"></i>
-            </a>
-        </div>
-        <div>
-            <a href="#">
-                <i class="fab fa-youtube-square"></i>
-            </a>
-        </div>
-    </div>
-    
+
     <p class="w-25 w-4/5 pb-3 m-auto text-xs text-gray-100 pt-6">
         Copyright 2017-2021 Code With Dary. Copyright 2024 TechNewsWorld Code With Kim Fui Leung. All Rights Reserved
     </p>
