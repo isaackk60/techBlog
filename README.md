@@ -6,7 +6,7 @@ TechNewsWorld is an tech blog, your go-to source for the latest in technology ne
 +	Node 12.13.0 or higher <br>
 +	Xampp or another MySQL Database client <br>
 
-## Technologies And Programming Languages Used
+## Technologies / Programming Languages Used
 + Laravel 8
 + JavaScript
 + Tailwind CSS
@@ -15,8 +15,19 @@ TechNewsWorld is an tech blog, your go-to source for the latest in technology ne
 
 ## Features
 + Add like to news
++ Add comments to news
 + Search News in search page
-+ Filter News by update time or like
++ Sort News by update time or like
+
+
+## Screenshots
+![Main page sideshow image][]
+![Main page show recent news image][]
+![News page image][]
+![Search page image][]
+![Like button image][]
+![Comments image][]
+
 
 ## Installation <br>
 Setting up your development environment on your local machine: <br>
@@ -56,8 +67,13 @@ php artisan migrate
 ## Authors
 Kim Fui Leung
 
-## The Tech Blog referenced from [this github repository](https://github.com/MeabhG97/laravel-blog.git)
-Laravel 8 Complete Blog
+## Contact
+For any questions, suggestions, or conspiracy theories you'd like to share, feel free to reach out to us at:
+Email: (isaac97663396@gmail.com)
+
+## Reference
+
+This tech blog is referenced from [this github repository](https://github.com/MeabhG97/laravel-blog.git)
 
 This repository is linked to [this youtube video](https://www.youtube.com/watch?v=HKJDLXsTr8A&t=4710s) where I show you how to create a complete blog in Laravel 8 using best practices.
 
@@ -67,3 +83,5 @@ This repository is linked to [this youtube video](https://www.youtube.com/watch?
 
 ## Contributing
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
+
+
