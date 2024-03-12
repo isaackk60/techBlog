@@ -1,5 +1,19 @@
-### Laravel 8 Tech Blog
+# Laravel 8 Tech Blog
 TechNewsWorld is an tech blog, your go-to source for the latest in technology news, trends, and insights from around the globe. At TechNewsWorld, we strive to provide you with timely and accurate information about the ever-evolving world of technology.
+
+
+## Table Of Contents
+1. [Requirements](#Requirements)
+2. [Technologies / Programming Languages Used](#Technologies-/-Programming-Languages-Used)
+3. [Features](#Features)
+4. [Screenshots](#Screenshots)
+5. [Installation](#Installation)
+    - [Before Starting](#Before-Starting)
+6. [Authors](#Authors)
+7. [Contact](#Contact)
+8. [Contributing](#Contributing)
+9. [License](#License)
+
 
 ## Requirements
 +	PHP 7.3 or higher <br>
@@ -41,7 +55,7 @@ php artisan cache:clear && php artisan config:clear
 php artisan serve
 ```
 
-## Before starting <br>
+## Before Starting <br>
 Create a database <br>
 ```
 mysql
@@ -83,5 +97,8 @@ This repository is linked to [this youtube video](https://www.youtube.com/watch?
 
 ## Contributing
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file or [click on the link](https://choosealicense.com/licenses/mit/) for more information.
 
 
