@@ -1,16 +1,24 @@
-## Laravel 8 Complete Blog
-
-This repository is linked to [this youtube video](https://www.youtube.com/watch?v=HKJDLXsTr8A&t=4710s) where I show you how to create a complete blog in Laravel 8 using best practices.
-
-•	Author: Code With Dary <br>
-•	Twitter: [@codewithdary](https://twitter.com/codewithdary) <br>
-•	Instagram: [@codewithdary](https://www.instagram.com/codewithdary/) <br>
+## Laravel 8 Tech Blog
+TechNewsWorld is an tech blog, your go-to source for the latest in technology news, trends, and insights from around the globe. At TechNewsWorld, we strive to provide you with timely and accurate information about the ever-evolving world of technology.
 
 ## Requirements
-•	PHP 7.3 or higher <br>
-•	Node 12.13.0 or higher <br>
++	PHP 7.3 or higher <br>
++	Node 12.13.0 or higher <br>
++	Xampp or another MySQL Database client <br>
 
-## Usage <br>
+## Technologies And Programming Languages Used
++ Laravel 8
++ JavaScript
++ Tailwind CSS
++ MySQL
++ PHP
+
+## Features
++ Add like to news
++ Search News in search page
++ Filter News by update time or like
+
+## Installation <br>
 Setting up your development environment on your local machine: <br>
 ```
 git clone git@github.com:codewithdary/laravel-8-complete-blog.git
@@ -44,6 +52,18 @@ Migrate the tables
 ```
 php artisan migrate
 ```
+
+## Authors
+Kim Fui Leung
+
+## The Tech Blog referenced from [this github repository](https://github.com/MeabhG97/laravel-blog.git)
+Laravel 8 Complete Blog
+
+This repository is linked to [this youtube video](https://www.youtube.com/watch?v=HKJDLXsTr8A&t=4710s) where I show you how to create a complete blog in Laravel 8 using best practices.
+
+•	Author: Code With Dary <br>
+•	Twitter: [@codewithdary](https://twitter.com/codewithdary) <br>
+•	Instagram: [@codewithdary](https://www.instagram.com/codewithdary/) <br>
 
 ## Contributing
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
