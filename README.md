@@ -4,11 +4,11 @@ TechNewsWorld is an tech blog, your go-to source for the latest in technology ne
 
 ## Table Of Contents
 1. [Requirements](#Requirements)
-2. [Technologies / Programming Languages Used](#Technologies-/-Programming-Languages-Used)
+2. [Technologies / Programming Languages Used](#technologies--programming-languages-used)
 3. [Features](#Features)
 4. [Screenshots](#Screenshots)
-5. [Installation](#Installation)
-    - [Before Starting](#Before-Starting)
+5. [Installation](#installation)
+    - [Before Starting](#before-starting)
 6. [Authors](#Authors)
 7. [Contact](#Contact)
 8. [Contributing](#Contributing)
@@ -43,7 +43,7 @@ TechNewsWorld is an tech blog, your go-to source for the latest in technology ne
 ![Comments image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/comments.png)
 
 
-## Installation <br>
+## Installation
 Setting up your development environment on your local machine: <br>
 ```
 git clone git@github.com:codewithdary/laravel-8-complete-blog.git
@@ -55,7 +55,7 @@ php artisan cache:clear && php artisan config:clear
 php artisan serve
 ```
 
-## Before Starting <br>
+## Before Starting
 Create a database <br>
 ```
 mysql
