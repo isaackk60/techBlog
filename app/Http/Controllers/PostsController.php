@@ -46,20 +46,17 @@ class PostsController extends Controller
     public function viewSearch()
     {
         return view('blog.viewSearch')
-            ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+            ->with('posts', Post::orderBy('like', 'DESC')->get());
     }
 
     public function search(Request $request)
     {
         $query = $request->input('query');
 
-        // Check if a search query exists
         if ($query) {
-            // Apply search filter only when a query is provided
-            $posts = Post::where('title', 'like', "%$query%")->orderBy('updated_at', 'DESC')->get();
+            $posts = Post::where('title', 'like', "%$query%")->orderBy('like', 'DESC')->get();
         } else {
-            // Fetch all posts if no query is provided
-            $posts = Post::orderBy('updated_at', 'DESC')->get();
+            $posts = Post::orderBy('like', 'DESC')->get();
         }
 
         return view('blog.viewSearch', compact('posts'));
