@@ -1,4 +1,4 @@
-## Laravel 8 Tech Blog
+### Laravel 8 Tech Blog
 TechNewsWorld is an tech blog, your go-to source for the latest in technology news, trends, and insights from around the globe. At TechNewsWorld, we strive to provide you with timely and accurate information about the ever-evolving world of technology.
 
 ## Requirements
@@ -14,19 +14,19 @@ TechNewsWorld is an tech blog, your go-to source for the latest in technology ne
 + PHP
 
 ## Features
-+ Add like to news
-+ Add comments to news
-+ Search News in search page
-+ Sort News by update time or like
++ **Like Feature for News**: Each user can like a news article only once and can also remove their like if desired. Likes are exclusive to users; guests can only view the total number of likes.
++ **Comment Feature for News**: Users have the ability to create, edit, and delete comments on news articles. Users are only permitted to modify or delete their own comments. Comments can only be added by users; guests have read-only access to comments.
++ **Search News on the Search Page**: Users can search for news articles by title on the search page. Search results are sorted based on the number of likes each article has received.
++ **Sort News by Update Time or Like**: Users can sort news articles by either their update time or the number of likes they have accumulated.
 
 
 ## Screenshots
-![Main page sideshow image][https://github.com/isaackk60/techBlog/blob/main/imagesReadme/main_page.jpg] <br/>
-![Main page show recent news image][https://github.com/isaackk60/techBlog/blob/main/imagesReadme/main_page_2.png] <br/>
-![News page image][https://github.com/isaackk60/techBlog/blob/main/imagesReadme/News_page.png] <br/>
-![Search page image][https://github.com/isaackk60/techBlog/blob/main/imagesReadme/search_page.jpg] <br/>
-![Like button image][https://github.com/isaackk60/techBlog/blob/main/imagesReadme/like_button.png] <br/>
-![Comments image][https://github.com/isaackk60/techBlog/blob/main/imagesReadme/comments.png]
+![Main page sideshow image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/main_page.jpg) <br/>
+![Main page show recent news image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/main_page_2.png) <br/>
+![News page image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/News_page.png) <br/>
+![Search page image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/search_page.jpg) <br/>
+![Like button image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/like_button.png) <br/>
+![Comments image](https://github.com/isaackk60/techBlog/blob/main/imagesReadme/comments.png)
 
 
 ## Installation <br>
