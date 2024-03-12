@@ -56,7 +56,7 @@ class PostsController extends Controller
         // Check if a search query exists
         if ($query) {
             // Apply search filter only when a query is provided
-            $posts = Post::where('title', 'like', "%$query%")->get();
+            $posts = Post::where('title', 'like', "%$query%")->orderBy('updated_at', 'DESC')->get();
         } else {
             // Fetch all posts if no query is provided
             $posts = Post::orderBy('updated_at', 'DESC')->get();
