@@ -57,7 +57,7 @@
         </div>
 
     </div>
-    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto pt-15 border-t border-gray-200">
+    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto pt-15 border-t border-gray-200 mb-20">
 
         <div class="flex flex-col justify-center">
             <h2 class="text-3xl font-semibold mb-4">Get in Touch</h2>

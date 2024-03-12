@@ -34,6 +34,7 @@
                 <i class="fas fa-search"></i></button>
         </form>
     </div>
+    <div class="mb-20">
     @foreach ($posts as $post)
         @if ($post)
             <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
@@ -102,4 +103,5 @@
             <h3 class="text-6xl font-semibold text-center">There are no related news</h3>
         </div>
     @endif
+</div>
 @endsection

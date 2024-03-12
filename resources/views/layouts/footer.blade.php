@@ -1,4 +1,4 @@
-<footer class="nav-footer-background-color pt-16 pb-5 mt-20">
+<footer class="nav-footer-background-color pt-16 pb-5 ">
     @guest
         <div class="sm:grid grid-cols-7 w-4/5 pb-5 m-auto text-center">
             {{-- <div> --}}

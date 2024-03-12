@@ -21,7 +21,7 @@
         </div>
     @endif
 
-    <div class="w-4/5 m-auto">
+    <div class="w-4/5 m-auto mb-20">
         <form action="/blog" method="POST" enctype="multipart/form-data">
             @csrf
 

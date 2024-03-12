@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <div class="sm:grid grid-cols-2 gap-10 w-5/6 mx-auto pt-15 border-t border-gray-200">
+    <div class="sm:grid grid-cols-2 gap-10 w-5/6 mx-auto pt-15 border-t border-gray-200 mb-20">
 
         <div class="flex flex-col justify-center">
 
