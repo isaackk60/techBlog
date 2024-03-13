@@ -27,13 +27,13 @@
             @method('PUT')
 
             <input type="text" name="title" value="{{ $post->title }}"
-                class="px-2 bg-transparent block border-b-2 w-full h-20 text-5xl outline-none">
+                class="px-2 bg-transparent block border-b-2 w-full h-20 titleInReadMore outline-none">
 
             <textarea name="subtitle" placeholder="Subtitle..."
-                class="p-2 leading-7 bg-transparent block border-b-2 w-full h-20 text-2xl font-bold outline-none">{{ $post->subtitle }}</textarea>
+                class="p-2 leading-7 bg-transparent block border-b-2 w-full h-20 text-gray-700 font-bold text-2xl outline-none">{{ $post->subtitle }}</textarea>
 
             <textarea name="description" placeholder="Description..."
-                class="p-2 leading-7 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">{{ $post->description }}</textarea>
+                class="p-2 leading-6 bg-transparent block border-b-2 w-full h-60 text-base text-gray-700 font-light outline-none">{{ $post->description }}</textarea>
 
             <button type="submit"
                 class="uppercase mt-12 button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
