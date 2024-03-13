@@ -99,6 +99,6 @@ This repository is linked to [this youtube video](https://www.youtube.com/watch?
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file or [click on the link](https://choosealicense.com/licenses/mit/) for more information.
+This project is licensed under the MIT License. See [click on the link](https://choosealicense.com/licenses/mit/) for more information.
 
 
