@@ -86,7 +86,7 @@
                                 class="inputEditComment p-2 leading-7 bg-transparent block border-2 w-full h-20 text-xl outline-none my-9 bg-gray-100">{{ $comment->content }}</textarea>
                             <button type="submit"
                                 class="editCommentButton uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">Save</button>
-                            <button id="cancelButton"
+                            <button id="cancelButton" name="cancelButton"
                                 class="uppercase cancel-button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">Cancel</button>
                         </form>
 

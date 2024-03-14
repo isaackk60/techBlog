@@ -27,6 +27,10 @@ class CommentsController extends Controller
     {
         $comment = Comment::findOrFail($id);
 
+        if ($request->has('cancelButton')) {
+            return back();
+        }else{
+
         $request->validate([
             'content' => 'required',
         ]);
@@ -35,6 +39,7 @@ class CommentsController extends Controller
         $comment->save();
 
         return back();
+    }
     }
 
 
