@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if (session()->has('message'))
+    @if (session()->has('message'))
         <div class="w-4/5 m-auto mt-10 pl-2">
             <p class="px-5 w-2/6 text-gray-50 bg-green-500 rounded-2xl py-4">
                 {{ session()->get('message') }}
@@ -98,24 +98,26 @@
                                 class="uppercase cancel-button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">Cancel</button>
                         </form>
 
-
-                        <span class="commentTime text-gray-500">
-                            By <span class="font-bold italic text-gray-800">{{ $comment->user->name }}</span>, Commented on
-                            {{ date('jS M Y', strtotime($comment->updated_at)) }}
-                        </span>
-
-                        @if (Auth::check() && $comment->user_id === Auth::id())
-                            <div class="sm:flex gap-5 float-right">
-                                <button
-                                    class="editButton text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">Edit</button>
-
-                                <form action="{{ route('comments.destroy', $comment) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-500 pr-3">Delete</button>
-                                </form>
+                        <div class="sm:flex sm:h-10 sm:flex-row sm:items-center sm:justify-between">
+                            <div class="commentTime text-gray-500">
+                                By <span class="font-bold italic text-gray-800">{{ $comment->user->name }}</span>,
+                                Commented on
+                                {{ date('jS M Y', strtotime($comment->updated_at)) }}
                             </div>
-                        @endif
+
+                            @if (Auth::check() && $comment->user_id === Auth::id())
+                                <div class="editButtonContainer sm:flex sm:h-10 sm:flex-row sm:items-center sm:justify-between">
+                                    <button
+                                        class="editButton text-white mr-3 edit-button-color px-3 py-2.5 rounded">Edit</button>
+
+                                    <form action="{{ route('comments.destroy', $comment) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-white delete-button-color p-3 rounded">Delete</button>
+                                    </form>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 @endforeach
                 @if ($post->comments->isEmpty())
@@ -179,10 +181,12 @@ action="{{ route('posts.updateLike', $post->slug) }}"
                 const commentContent = commentContainer.querySelector('.editCommentContent');
                 const editForm = commentContainer.querySelector('.inputEditCommentForm');
                 const commentTimes = commentContainer.querySelector('.commentTime');
+                const editButtonContainer=commentContainer.querySelector('.editButtonContainer');
 
                 commentContent.style.display = 'none';
                 commentTimes.style.display = 'none';
                 editForm.style.display = 'block';
+                editButtonContainer.style.display = 'none';
             });
         });
 
@@ -193,10 +197,12 @@ action="{{ route('posts.updateLike', $post->slug) }}"
                 const commentContent = commentContainer.querySelector('.editCommentContent');
                 const editForm = commentContainer.querySelector('.inputEditCommentForm');
                 const commentTimes = commentContainer.querySelector('.commentTime');
+                const editButtonContainer=commentContainer.querySelector('.editButtonContainer');
 
                 commentContent.style.display = 'block';
                 commentTimes.style.display = 'block';
                 editForm.style.display = 'none';
+                editButtonContainer.style.display = 'block';
             });
         });
 

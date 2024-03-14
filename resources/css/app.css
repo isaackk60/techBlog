@@ -144,3 +144,16 @@ h2 {
 .cancel-button-color:hover {
     background-color: grey;
 }
+
+.delete-button-color{
+    background-color:#FF1F1F;
+}
+.delete-button-color:hover{
+    background-color: #BF211E;
+}
+.edit-button-color{
+    background-color:#31B927;
+}
+.edit-button-color:hover{
+    background-color:#24871D;
+}

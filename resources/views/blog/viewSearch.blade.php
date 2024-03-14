@@ -35,73 +35,81 @@
         </form>
     </div>
     <div class="mb-20">
-    @foreach ($posts as $post)
-        @if ($post)
-            <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
-                <div class="image-padding">
-                    <img src="{{ asset('images/' . $post->image_path) }}" alt="">
-                </div>
-                <div>
-                    <h2 class="text-gray-700 font-bold text-2xl pb-4">
-                        {{ $post->title }}
-                    </h2>
+        @foreach ($posts as $post)
+            @if ($post)
+                <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200">
+                    <div class="image-padding">
+                        <img src="{{ asset('images/' . $post->image_path) }}" alt="">
+                    </div>
+                    <div>
+                        <h2 class="text-gray-700 font-bold text-2xl pb-4">
+                            {{ $post->title }}
+                        </h2>
 
-                    <span class="text-gray-500">
-                        By <span class="font-bold italic text-gray-800">{{ $post->user->name }}</span>, Created on
-                        {{ date('jS M Y', strtotime($post->updated_at)) }}
-                    </span>
+                        <span class="text-gray-500">
+                            By <span class="font-bold italic text-gray-800">{{ $post->user->name }}</span>, Created on
+                            {{ date('jS M Y', strtotime($post->updated_at)) }}
+                        </span>
 
-                    {{-- <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
+                        {{-- <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
                 {{ $post->description }}
             </p> --}}
-                    <?php
-                    $wordCount = str_word_count($post->description);
-                    
-                    if ($wordCount > 40) {
-                        $words = explode(' ', $post->description);
-                        $shortDescription = implode(' ', array_slice($words, 0, 40));
-                        $shortDescription .= '...';
-                    } else {
-                        $shortDescription = $post->description;
-                    }
-                    
-                    echo "<p class='text-base text-gray-700 pt-2 pb-10 leading-6 font-light'>$shortDescription</p>";
-                    ?>
+                        <?php
+                        $wordCount = str_word_count($post->description);
+                        
+                        if ($wordCount > 40) {
+                            $words = explode(' ', $post->description);
+                            $shortDescription = implode(' ', array_slice($words, 0, 40));
+                            $shortDescription .= '...';
+                        } else {
+                            $shortDescription = $post->description;
+                        }
+                        
+                        echo "<p class='text-base text-gray-700 pt-2 pb-3 leading-6 font-light'>$shortDescription</p>";
+                        ?>
 
 
-                    <a href="/blog/{{ $post->slug }}"
-                        class="uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-                        Keep Reading
-                    </a>
+                        <div class="sm:flex sm:h-20 sm:flex-row sm:items-center sm:justify-between">
+                            <div>
+                                <a href="/blog/{{ $post->slug }}"
+                                    class="uppercase button-color text-gray-100 text-lg font-extrabold py-3.5 px-8 rounded-2xl">
+                                    Read More
+                                </a>
+                            </div>
 
-                    @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
-                        <span class="float-right">
-                            <a href="/blog/{{ $post->slug }}/edit"
-                                class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">
-                                Edit
-                            </a>
-                        </span>
+                            @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
+                                <div class="sm:flex sm:h-20 sm:flex-row sm:items-center sm:justify-between">
+                                    <div>
+                                        <a href="/blog/{{ $post->slug }}/edit"
+                                            class="text-white mr-3 edit-button-color px-3 py-2.5 rounded">
+                                            Edit
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <form action="/blog/{{ $post->slug }}" method="POST" class="none">
+                                            @csrf
+                                            @method('delete')
 
-                        <span class="float-right">
-                            <form action="/blog/{{ $post->slug }}" method="POST">
-                                @csrf
-                                @method('delete')
+                                            <button class="text-white delete-button-color p-3 rounded" type="submit">
+                                                Delete
+                                            </button>
 
-                                <button class="text-red-500 pr-3" type="submit">
-                                    Delete
-                                </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
 
-                            </form>
-                        </span>
-                    @endif
+
+
+                    </div>
                 </div>
+            @endif
+        @endforeach
+        @if ($posts->isEmpty())
+            <div class="w-4/5 mx-auto py-15">
+                <h3 class="text-6xl font-semibold text-center">There are no related news</h3>
             </div>
         @endif
-    @endforeach
-    @if ($posts->isEmpty())
-        <div class="w-4/5 mx-auto py-15">
-            <h3 class="text-6xl font-semibold text-center">There are no related news</h3>
-        </div>
-    @endif
-</div>
+    </div>
 @endsection

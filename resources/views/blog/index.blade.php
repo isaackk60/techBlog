@@ -29,7 +29,8 @@
     <div class="w-4/5 mx-auto pt-15">
         <form action="/blog" method="GET">
             <label for="sort">Sort by</label>
-            <select name="sort" onchange="this.form.submit()" class="ml-3 cursor-pointer pl-2 pr-5 border-2 border-gray-500">
+            <select name="sort" onchange="this.form.submit()"
+                class="ml-3 cursor-pointer pl-2 pr-5 border-2 border-gray-500">
                 <option value="updated_at" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'updated_at') {
                     echo 'selected';
                 } ?>>Most Recent</option>
@@ -75,35 +76,38 @@
                         $shortDescription = $post->description;
                     }
                     
-                    echo "<p class='text-base text-gray-700 pt-2 pb-10 leading-6 font-light'>$shortDescription</p>";
+                    echo "<p class='text-base text-gray-700 pt-2 mb-3 leading-6 font-light'>$shortDescription</p>";
                     ?>
-
-
-                    <a href="/blog/{{ $post->slug }}"
-                        class="uppercase button-color text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-                        Read More
-                    </a>
-
-                    @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
-                        <span class="float-right">
-                            <a href="/blog/{{ $post->slug }}/edit"
-                                class="text-gray-700 italic hover:text-gray-900 pb-1 border-b-2">
-                                Edit
+                    <div class="sm:flex sm:h-20 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <a href="/blog/{{ $post->slug }}"
+                                class="uppercase button-color text-gray-100 text-lg font-extrabold py-3.5 px-8 rounded-2xl">
+                                Read More
                             </a>
-                        </span>
+                        </div>
 
-                        <span class="float-right">
-                            <form action="/blog/{{ $post->slug }}" method="POST">
-                                @csrf
-                                @method('delete')
+                        @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
+                            <div class="sm:flex sm:h-20 sm:flex-row sm:items-center sm:justify-between">
+                                <div>
+                                    <a href="/blog/{{ $post->slug }}/edit"
+                                        class="text-white mr-3 edit-button-color px-3 py-2.5 rounded">
+                                        Edit
+                                    </a>
+                                </div>
+                                <div>
+                                    <form action="/blog/{{ $post->slug }}" method="POST" class="none">
+                                        @csrf
+                                        @method('delete')
 
-                                <button class="text-red-500 pr-3" type="submit">
-                                    Delete
-                                </button>
+                                        <button class="text-white delete-button-color p-3 rounded" type="submit">
+                                            Delete
+                                        </button>
 
-                            </form>
-                        </span>
-                    @endif
+                                    </form>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         @endforeach
