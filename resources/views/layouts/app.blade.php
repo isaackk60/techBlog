@@ -21,7 +21,7 @@
 
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
-        <header class="nav-footer-background-color py-6">
+        <header class="nav-background-color py-6">
             <div class="sm:grid grid-cols-3 m-auto">
                 <div class="text-center">
                     <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
@@ -29,21 +29,21 @@
                     </a>
                 </div>
                 <div class="sm:grid grid-cols-4 gap-3 m-auto text-center font-medium">
-                    <a class="nav-footer-color" href="{{ route('blog.index') }}">{{ __('News') }}</a>
-                    <a class="nav-footer-color" href="{{ route('blog.viewSearch') }}">{{ __('Search') }}</a>
-                    <a class="nav-footer-color" href="{{ route('about') }}">{{ __('About') }}</a>
-                    <a class="nav-footer-color" href="{{ route('contact') }}">{{ __('Contact') }}</a>
+                    <a class="nav-color" href="{{ route('blog.index') }}">{{ __('News') }}</a>
+                    <a class="nav-color" href="{{ route('blog.viewSearch') }}">{{ __('Search') }}</a>
+                    <a class="nav-color" href="{{ route('about') }}">{{ __('About') }}</a>
+                    <a class="nav-color" href="{{ route('contact') }}">{{ __('Contact') }}</a>
                 </div>
                 <div class="sm:grid grid-cols-2 gap-2 m-auto text-center font-medium">
                     @guest
-                        <a class="nav-footer-color" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-color" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
-                            <a class="nav-footer-color" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-color" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     @else
                         <div class="username">{{ Auth::user()->name }}</div>
 
-                        <a href="{{ route('logout') }}" class="nav-footer-color"
+                        <a href="{{ route('logout') }}" class="nav-color"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">

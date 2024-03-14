@@ -30,11 +30,11 @@ img {
     padding-bottom: 2rem;
 }
 
-.nav-footer-color {
+.nav-color {
     color: white;
 }
 
-.nav-footer-color:hover {
+.nav-color:hover {
     color: #0E2D95;
 }
 
@@ -42,8 +42,18 @@ img {
     color: white;
 }
 
-.nav-footer-background-color {
+.nav-background-color {
     background-color: #0077B6;
+}
+
+.footer-detail{
+    background-color:black;
+}
+.footer-color{
+    color:white;
+}
+.footer-color :hover{
+    color:#FF9900;
 }
 
 .social-icons a:hover {
@@ -51,7 +61,7 @@ img {
     padding: 0px 7px;
 }
 .social-icons a i:hover{
-    color:#0E2D95;
+    color:#FF9900;
 }
 
 .imageInReadMore {

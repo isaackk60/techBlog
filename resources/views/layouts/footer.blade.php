@@ -1,4 +1,4 @@
-<footer class="nav-footer-background-color pt-16 pb-5 ">
+<footer class="footer-detail pt-16 pb-5 ">
     @guest
         <div class="sm:grid grid-cols-7 w-4/5 pb-5 m-auto text-center">
             {{-- <div> --}}
@@ -6,7 +6,7 @@
                 Pages
             </h3> --}}
 
-            {{-- <ul class="py-4 sm:text-s pt-4 nav-footer-color">
+            {{-- <ul class="py-4 sm:text-s pt-4 footer-color">
                 <li class="pb-1">
                     <a href="/">
                         Home
@@ -29,37 +29,37 @@
                 </li>
             </ul>
         </div> --}}
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/">
                     Home
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="blog">
                     Blog
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/blog/viewSearch">
                     Search
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/about">
                     About Us
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/contact">
                     Contact Us
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/login">
                     Login
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/register">
                     Register
                 </a>
@@ -71,7 +71,7 @@
             </h3>
             
 
-            <ul class="py-4 sm:text-s pt-4 nav-footer-color">
+            <ul class="py-4 sm:text-s pt-4 footer-color">
                 <li class="pb-1">
                     <a href="/">
                         What we do
@@ -100,7 +100,7 @@
                 Latest posts
             </h3>
 
-            <ul class="py-4 sm:text-s pt-4 nav-footer-color">
+            <ul class="py-4 sm:text-s pt-4 footer-color">
                 <li class="pb-1">
                     <a href="/">
                         Why we love tech
@@ -126,32 +126,32 @@
         </div>
     @else
         <div class="sm:grid grid-cols-6 w-4/5 pb-5 m-auto text-center">
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/">
                     Home
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="blog">
                     Blog
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/blog/viewSearch">
                     Search
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/about">
                     About Us
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="/contact">
                     Contact Us
                 </a>
             </div>
-            <div class="text-lg sm:font-bold text-gray-100 nav-footer-color">
+            <div class="text-lg sm:font-bold text-gray-100 footer-color">
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
