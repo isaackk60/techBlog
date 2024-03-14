@@ -15,7 +15,7 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);//user id related to user table
     }
 
     public function sluggable(): array
@@ -33,12 +33,12 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class); // comment table must have a belongTo no need another database table
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'post_user', 'post_id', 'user_id');
+        return $this->belongsToMany(User::class, 'post_user', 'post_id', 'user_id');// with third pivot table have another belongsToMany
     }
     
     public function likedByUser($user)

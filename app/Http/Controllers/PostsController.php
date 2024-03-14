@@ -200,15 +200,15 @@ class PostsController extends Controller
     public function updateLike(Request $request, $slug)
     {
         $user = auth()->user();
-        $post = Post::where('slug', $slug)->firstOrFail();
+        $post = Post::where('slug', $slug)->firstOrFail();//get first record from database, if not existed throw error
         $originalUpdatedAt = $post->updated_at;
         $isLiked = $user->likes()->where('post_id', $post->id)->exists();
 
         if ($isLiked) {
-            $user->likes()->detach($post->id);
+            $user->likes()->detach($post->id);//remove record many to many
             $post->like -= 1;
         } else {
-            $user->likes()->attach($post->id);
+            $user->likes()->attach($post->id);//add record many to many
             $post->like += 1;
         }
 
