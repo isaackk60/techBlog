@@ -17,7 +17,19 @@
         </div>
     @endif
 
-    <div class="sm:grid grid-cols-2 gap-10 w-5/6 mx-auto pt-15 mb-20">
+    @if ($errors->any())
+        <div class="w-4/5 m-auto mt-10 pl-2">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="w-1/5 mb-4 text-gray-50 bg-red-700 rounded-2xl py-4 px-5">
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <div class="sm:grid grid-cols-2 gap-10 w-5/6 mx-auto pt-15 ">
 
         <div class="flex flex-col justify-center">
 
@@ -38,21 +50,31 @@
                 alt="">
         </div>
     </div>
-    <div>
-
-        <form action="{{ route('questions.store') }}" method="POST">
+    <div class="w-4/5 m-auto about-background-color mb-20 rounded">
+        <form action="{{ route('questions.store') }}" method="POST" class="px-6 space-y-6 sm:px-10 sm:space-y-8">
             @csrf
-            <div>
+            <h2 class="text-center text-3xl font-semibold text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">Contact Form</h2>
+            <div class="flex flex-col">
                 @if (!auth()->check())
-                    <input type="text" name="name" placeholder="Your Name">
-                    <input type="email" name="email" placeholder="Your Email">
+                    <div class="flex flex-col">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Your Name:</label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" class="form-input w-full mb-8">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Your Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" class="form-input w-full mb-8">
+                    </div>
                 @endif
-                <input type="text" name="title" placeholder="Title">
-                <textarea name="description" placeholder="Description"></textarea>
-                <button type="submit">Submit</button>
+                <div class="flex flex-col">
+                    <label for="title" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Title:</label>
+                    <input type="text" name="title" id="title" placeholder="Title" class="form-input w-full mb-8">
+                </div>
+                <div class="flex flex-col">
+                    <label for="description" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Description:</label>
+                    <textarea name="description" id="description" placeholder="What can we help with?" class="form-textarea w-full mb-8"></textarea>
+                </div>
+                <button type="submit" class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 button-color sm:py-4 mb-8">Submit</button>
             </div>
         </form>
-
-
     </div>
 @endsection
