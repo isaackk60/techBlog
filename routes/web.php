@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +83,5 @@ Route::put('/blog/{slug}/dislike', [\App\Http\Controllers\PostsController::class
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 
 Route::get('/contact', [\App\Http\Controllers\PagesController::class, 'contact'])->name('contact');
+
+Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');

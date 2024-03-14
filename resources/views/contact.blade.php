@@ -9,7 +9,15 @@
         </div>
     </div>
 
-    <div class="sm:grid grid-cols-2 gap-10 w-5/6 mx-auto pt-15 border-t border-gray-200 mb-20">
+    @if (session()->has('message'))
+        <div class="w-4/5 m-auto mt-10 pl-2">
+            <p class="px-5 w-2/6 mb-4 text-gray-50 bg-green-500 rounded-2xl py-4">
+                {{ session()->get('message') }}
+            </p>
+        </div>
+    @endif
+
+    <div class="sm:grid grid-cols-2 gap-10 w-5/6 mx-auto pt-15 mb-20">
 
         <div class="flex flex-col justify-center">
 
@@ -29,5 +37,22 @@
             <img src="https://media.istockphoto.com/id/1346125184/photo/group-of-successful-multiethnic-business-team.jpg?s=612x612&w=0&k=20&c=5FHgRQZSZed536rHji6w8o5Hco9JVMRe8bpgTa69hE8="
                 alt="">
         </div>
+    </div>
+    <div>
+
+        <form action="{{ route('questions.store') }}" method="POST">
+            @csrf
+            <div>
+                @if (!auth()->check())
+                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="email" name="email" placeholder="Your Email">
+                @endif
+                <input type="text" name="title" placeholder="Title">
+                <textarea name="description" placeholder="Description"></textarea>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+
     </div>
 @endsection
