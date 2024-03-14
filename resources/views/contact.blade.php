@@ -57,12 +57,12 @@
             <div class="flex flex-col">
                 @if (!auth()->check())
                     <div class="flex flex-col">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Your Name:</label>
-                        <input type="text" name="name" id="name" placeholder="Your Name" class="form-input w-full mb-8">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Name:</label>
+                        <input type="text" name="name" id="name" placeholder="Name" class="form-input w-full mb-8">
                     </div>
                     <div class="flex flex-col">
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Your Email:</label>
-                        <input type="email" name="email" id="email" placeholder="Your Email" class="form-input w-full mb-8">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Email" class="form-input w-full mb-8">
                     </div>
                 @endif
                 <div class="flex flex-col">

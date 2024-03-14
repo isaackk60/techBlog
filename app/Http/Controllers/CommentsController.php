@@ -20,7 +20,7 @@ class CommentsController extends Controller
         $comment->user_id = auth()->id();
         $comment->save();
 
-        return back();
+        return back()->with('message','Your comment has been added!');
     }
 
     public function update(Request $request, $id)
@@ -28,7 +28,7 @@ class CommentsController extends Controller
         $comment = Comment::findOrFail($id);
 
         if ($request->has('cancelButton')) {
-            return back();
+            return back()->with('message','Comment editing canceled.');
         }else{
 
         $request->validate([
@@ -38,7 +38,7 @@ class CommentsController extends Controller
         $comment->content = $request->input('content');
         $comment->save();
 
-        return back();
+        return back()->with('message','Your comment has been updated!');
     }
     }
 
@@ -49,6 +49,6 @@ class CommentsController extends Controller
     {
         $comment->delete();
 
-        return back();
+        return back()->with('message','Your comment has been deleted!');
     }
 }

@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session()->has('message'))
+        <div class="w-4/5 m-auto mt-10 pl-2">
+            <p class="px-5 w-2/6 text-gray-50 bg-green-500 rounded-2xl py-4">
+                {{ session()->get('message') }}
+            </p>
+        </div>
+    @endif
+
     <div class="w-4/5 m-auto text-left">
         <div class="sm:grid grid-cols-2 mx-auto pt-15 pb-7 ">
             <h1 class="titleInReadMore">
