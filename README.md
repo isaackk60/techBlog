@@ -32,6 +32,7 @@ TechNewsWorld is an tech blog, your go-to source for the latest in technology ne
 + **Comment Feature for News**: Users have the ability to create, edit, and delete comments on news articles. Users are only permitted to modify or delete their own comments. Comments can only be added by users; guests have read-only access to comments.
 + **Search News on the Search Page**: Users can search for news articles by title on the search page. Search results are sorted based on the number of likes each article has received.
 + **Sort News by Update Time or Like**: Users can sort news articles by either their update time or the number of likes they have accumulated.
++ **Submit Question on the Contact Page**: Enable users to submit inquiries or questions directly from the contact page. These questions or comments would store on MySQL database.
 
 
 ## Screenshots
