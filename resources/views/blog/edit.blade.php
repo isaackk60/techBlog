@@ -21,17 +21,17 @@
         </div>
     @endif
 
-    <div class="w-4/5 m-auto mb-20 rounded about-background-color">
+    <h2 class="text-center text-5xl font-semibold text-gray-700 my-5 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">Update
+        News</h2>
+    <div class="w-4/5 m-auto mb-20 rounded about-background-color pt-5">
         <form action="/blog/{{ $post->slug }}" method="POST" enctype="multipart/form-data"
             class="px-6 space-y-6 sm:px-10 sm:space-y-8">
             @csrf
             @method('PUT')
-            <h2 class="text-center text-3xl font-semibold text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">Update
-                News</h2>
             <div class="flex flex-col">
                 <input type="text" name="title" value="{{ $post->title }}" placeholder="Title..."
-                    class="form-input w-full mb-8">
-                <textarea name="subtitle" placeholder="Subtitle..." class="form-textarea w-full mb-8 h-17">{{ $post->subtitle }}</textarea>
+                    class="form-input w-full mb-8 text-xl">
+                <textarea name="subtitle" placeholder="Subtitle..." class="form-textarea w-full mb-8 h-17 text-lg">{{ $post->subtitle }}</textarea>
                 <textarea name="description" placeholder="Description..." class="form-textarea w-full h-60">{{ $post->description }}</textarea>
                 <button type="submit"
                     class="mt-10 w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 button-color sm:py-4 mb-8">Update</button>
