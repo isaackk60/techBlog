@@ -29,6 +29,8 @@ class CommentsController extends Controller
 
         if ($request->has('cancelButton')) {
             return back()->with('message','Comment editing canceled.');
+            // if have time can try to use redirect() id to comment part 
+            //return redirect()->route('route_name', ['#id']);
         }else{
 
         $request->validate([
