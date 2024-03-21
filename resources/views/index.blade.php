@@ -142,7 +142,7 @@
                             <?php
                             $wordCount = str_word_count($post->description);
                             
-                            if ($wordCount > 30) {
+                            if ($wordCount > 40) {
                                 $words = explode(' ', $post->description);
                                 $shortDescription = implode(' ', array_slice($words, 0, 40));
                                 $shortDescription .= ' ...';
